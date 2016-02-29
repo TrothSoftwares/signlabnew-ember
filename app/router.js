@@ -6,6 +6,30 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('dashboard', function() {
+    this.route('projects', function() {
+      this.route('home');
+      this.route('new');
+
+      this.route('project', {path: ':id'}, function() {
+        this.route('home');
+        this.route('enquiry-form');
+        this.route('quotation-form');
+        this.route('job');
+        this.route('design');
+      });
+    });
+    this.route('customers', function() {
+      this.route('customer', {path: ':id'});
+      this.route('new');
+    });
+    this.route('agents', function() {
+      this.route('agent', {path: ':id'});
+      this.route('new');
+
+
+    });
+  });
 });
 
 export default Router;

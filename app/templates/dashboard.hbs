@@ -1,0 +1,152 @@
+<script>
+    $('.ui.dropdown').dropdown();
+</script>
+
+
+
+<div class="ui fluid container app-cover">
+  <div class="app-wrap" >
+  <div class="ui attached stackable teal menu inverted">
+    <!-- <div class="ui container"> -->
+      <div class="ui dropdown item">
+        <i class="folder icon"></i> Projects
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          {{#link-to  'dashboard.projects.project' class="item" }}
+          <i class="edit icon"></i> All Projects
+          {{/link-to}}
+          {{#link-to  'dashboard.projects' class="item" }}
+          <i class="add new icon"></i> Start New Project
+          {{/link-to}}
+
+        </div>
+      </div>
+      <div class="ui dropdown item">
+        <i class="users icon"></i> Customers
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          {{#link-to  'dashboard.customers' class="item" }}
+          <i class="users icon"></i> All Customers
+          {{/link-to}}
+          {{#link-to  'dashboard.customers' class="item" }}
+          <i class="add user icon"></i> Add New
+          {{/link-to}}
+
+        </div>
+
+      </div>
+
+      <div class="ui dropdown item">
+        <i class="users icon"></i>Agents
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item"><i class="users icon"></i> All Agents</a>
+          <a class="item"><i class="add user icon"></i> Add New</a>
+        </div>
+      </div>
+      <div class="right item">
+        <div class="ui dropdown item">
+          <i class="user icon"></i>Logged in as Admin
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <a class="item"><i class="sign out icon"></i> Logout </a>
+
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+<div class="ui bottom attached segment fullheight no-padd">
+
+  {{outlet}}
+  <!-- <div class="ui grid">
+  <div class="four wide column">
+    <div class="ui vertical right inverted labeled icon pointing menu">
+  <a class="item">
+    <i class="file text icon sm-icon"></i>
+    Enquiry Form
+  </a>
+  <a class="item">
+    <i class="file text outline icon"></i>
+    Quotation Form
+  </a>
+  <a class="item">
+    <i class="user icon"></i>
+    Customer
+  </a>
+  <a class="item">
+    <i class="user icon"></i>
+    Agent
+  </a>
+  <a class="item">
+    <i class="puzzle icon"></i>
+    Job Details
+  </a>
+  <a class="item">
+    <i class="location marker icon"></i>
+    Site Details
+  </a>
+</div>
+</div>
+  <div class="four wide column">
+    <div class="ui inverted vertical icon menu">
+      <a class="item">
+        <i class="gamepad icon"></i>
+          Job Details
+      </a>
+      <a class="item">
+        <i class="video camera icon"></i>
+      </a>
+      <a class="item">
+        <i class="video play icon"></i>
+      </a>
+    </div>
+  </div>
+  <div class="two wide column">In theory, the em unit is the new and upcoming standard for font sizes on the web, but in practice, the percent unit seems to provide a more consistent and accessible display for users. When client settings have changed, percent text scales at a reasonable rate, allowing designers to preserve readability, accessibility, and visual design.</div>
+  <div class="three wide column">
+    <div class="ui celled list">
+      <div class="item">
+        <img class="ui avatar image" src="/images/avatar/small/helen.jpg">
+        <div class="content">
+          <div class="header">Snickerdoodle</div>
+          An excellent companion
+        </div>
+      </div>
+      <div class="item">
+        <i class="user icon" ></i>
+        <div class="content">
+          <div class="header">Poodle</div>
+          A poodle, its pretty basic
+        </div>
+      </div>
+      <div class="item">
+        <img class="ui avatar image" src="/images/avatar/small/daniel.jpg">
+        <div class="content">
+          <div class="header">Paulo</div>
+          He's also a dog
+        </div>
+      </div>
+    </div>
+    </div>
+
+</div> -->
+
+</div>
+<!-- <div class="ui left demo vertical inverted active sidebar labeled icon menu">
+  <a class="item">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item">
+    <i class="block layout icon"></i>
+    Topics
+  </a>
+  <a class="item">
+    <i class="smile icon"></i>
+    Friends
+  </a>
+</div> -->
+</div>
+
+
+</div>
