@@ -12,11 +12,11 @@ Router.map(function() {
       this.route('new');
 
       this.route('project', {path: ':id'}, function() {
-        this.route('home');
         this.route('enquiry-form');
         this.route('quotation-form');
         this.route('job');
         this.route('design');
+        this.route('home');
       });
     });
     this.route('customers', function() {
@@ -30,6 +30,8 @@ Router.map(function() {
 
     });
   });
+  this.route('login');
+  this.route('hub');
 });
 
 export default Router;
