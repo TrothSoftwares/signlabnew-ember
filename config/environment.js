@@ -3,8 +3,14 @@
 module.exports = function(environment) {
   var ENV = {
     contentSecurityPolicy: {
-	  'style-src': "'self' 'unsafe-inline'"
-	},
+     'default-src': "'self' *",
+     'script-src': "'self' 'unsafe-inline' *",
+     'connect-src': "'self' *",
+     'font-src': "'self'  data: http://fonts.gstatic.com  data: http://fonts.googleapis.com * ",
+     'media-src': "'self' *",
+     'style-src': "'self' 'unsafe-inline' *",
+     'img-src' : "'self' data: http://fonts.gstatic.com *"
+   },
     modulePrefix: 'sem',
     environment: environment,
     baseURL: '/',
@@ -20,7 +26,7 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
-    
+
   };
 
   if (environment === 'development') {

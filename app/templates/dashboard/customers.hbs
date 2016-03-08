@@ -1,9 +1,9 @@
 <div class="ui stackable grid">
 <div class="four wide column">
-  <div class="ui black segment">
+  <div class="ui black segment"style="background: rgba(256,256,256,0.6)">
     <div class="content ">
-      <div class="header"> <h3> Project Timeline</h3></div>
-      <div class="ui action  input">
+      <div class="header"> <h2 class="ui header"> Customers</h2></div>
+      <div class="ui action fluid input">
         <input type="text" placeholder="Search...">
         <button class="ui icon button">
           <i class="search icon"></i>
@@ -11,6 +11,27 @@
       </div>
 <div class="con-scrol">
   <div class="ui middle aligned divided list">
+
+    <div class="item">
+      <img class="ui avatar image" src="/images/user.png">
+      <div class="content">
+        {{#link-to  'dashboard.customers.customer' 'fhg' }}
+        <a class="header">Daniel Louise</a>    {{/link-to}}
+      </div>
+    </div>
+
+    <div class="item">
+      <img class="ui avatar image" src="/images/user.png">
+      <div class="content">
+        <a class="header">Stevie Feliciano</a>
+      </div>
+    </div>
+    <div class="item">
+      <img class="ui avatar image" src="/images/user.png">
+      <div class="content">
+        <a class="header">Elliot Fu</a>
+      </div>
+    </div>
     <div class="item">
       <img class="ui avatar image" src="/images/user.png">
       <div class="content">
@@ -78,122 +99,6 @@
 </div>
   </div>
 </div>
-<div class="twelve wide column">
-  <div class="ui black segment">
-    <div class="ui basic right aligned segment">
-      <div class="ui blue basic button">
-        <i class="add user icon"></i>
-        Add New customer
-        </div>
-  </div>
-  <div class="ui stackable grid">
-  <div class="eight wide column">
-    <div class="ui blue segment">
-      <div>
-        <div class="ui  form">
-          <!-- <div class="ui info message">
-            <div class="header">We had some issues</div>
-            <ul class="list">
-              <li>Please enter your first name</li>
-              <li>Please enter your last name</li>
-            </ul>
-                    </div> -->
-
-                    <div class="two fields">
-          <div class="field">
-            <label>First Name :</label>
-              <label><h4>Anvar</h4></label>
-              </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input placeholder="Last Name" type="text">
-          </div>
-          </div>
-            <div class="field">
-              <label>First Name</label>
-              <input placeholder="First Name" type="text">
-            </div>
-            <div class="field">
-              <label>Last Name</label>
-              <input placeholder="Last Name" type="text">
-            </div>
-                  <button class="ui primary button" >
-        Save
-      </button>
-      <button class="ui button">
-        Discard
-      </button>
-
-
-          <!-- <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox">
-              <label>I agree to the terms and conditions</label>
-            </div>
-          </div> -->
-          <!-- <div class="ui blue submit button">Submit</div> -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <div class="eight wide column">
-      <div class="ui blue segment con-scrol">
-        <h3> Projects</h3>
-        <div class="ui top aligned celled list">
-          <div class="item">
-
-            <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
-            </div>
-            <img class="ui avatar image" src="/images/pro.png">
-
-            <div class="content">
-              <div class="header">Poodle</div>
-              Pending
-              </div>
-
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
-            </div>
-            <img class="ui avatar middle aligned image" src="/images/pro3.png">
-
-            <div class="content">
-              <div class="header">Diesel</div>
-              Completed
-            </div>
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
-            </div>
-            <img class="ui avatar middle aligned image" src="/images/pro5.png">
-
-            <div class="content">
-              <div class="header">Tarmac</div>
-              Completed
-            </div>
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
-            </div>
-            <div class="content">
-              <div class="header">Froggy</div>
-              Added
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    </div>
-
-</div>
-
-</div>
-</div>
-
 {{outlet}}
+
+</div>

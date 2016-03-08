@@ -1,6 +1,4 @@
-<script>
-    $('.ui.dropdown').dropdown();
-</script>
+
 
 
 
@@ -15,7 +13,7 @@
           {{#link-to  'dashboard.projects.home' class="item" }}
           <i class="edit icon"></i> All Projects
           {{/link-to}}
-          {{#link-to  'dashboard.projects' class="item" }}
+          {{#link-to  'dashboard.projects.new' class="item" }}
           <i class="add new icon"></i> Start New Project
           {{/link-to}}
 
@@ -28,7 +26,7 @@
           {{#link-to  'dashboard.customers' class="item" }}
           <i class="users icon"></i> All Customers
           {{/link-to}}
-          {{#link-to  'dashboard.customers' class="item" }}
+          {{#link-to  'dashboard.customers.new' class="item" }}
           <i class="add user icon"></i> Add New
           {{/link-to}}
 
@@ -40,8 +38,13 @@
         <i class="users icon"></i>Agents
         <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item"><i class="users icon"></i> All Agents</a>
-          <a class="item"><i class="add user icon"></i> Add New</a>
+          {{#link-to  'dashboard.agents' class="item" }}
+          <i class="users icon"></i> All Agents
+          {{/link-to}}
+          {{#link-to  'dashboard.agents.new' class="item" }}
+        <i class="add user icon"></i> Add New
+          {{/link-to}}
+
         </div>
       </div>
       <div class="right item">
@@ -150,3 +153,7 @@
 
 
 </div>
+
+<script>
+    $('.ui.dropdown').dropdown();
+</script>

@@ -33,9 +33,10 @@ body
 
 .con-scrol
 {
-  max-height: 385px;
+  max-height: 400px;
   overflow: auto;
   padding: 5px 0px 3px;
+  margin-top: 10px
 }
 
 .ui.avatar.image {
