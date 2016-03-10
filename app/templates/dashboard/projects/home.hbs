@@ -1,6 +1,38 @@
 <script>
 </script>
+<div class="two wide column">
+<div class="ui vertical inverted green   labeled icon menu" style="background: rgba(34,146,167,0.6)">
+  {{#link-to  'dashboard.projects.home.cur-home' class="item" }}
+    <i class="home icon"></i>
+    Home
+    {{/link-to}}
+  {{#link-to  'dashboard.projects.home.cur-projects' class="item" }}
+    <i class="file icon"></i>
+    Projects
+    {{/link-to}}
+    {{#link-to  'dashboard.projects.home.cur-enqs' class="item" }}
+    <i class="file icon"></i>
+    Enquiries
+    {{/link-to}}
+    {{#link-to  'dashboard.projects.home.cur-qtns' class="item" }}
+    <i class="file outline icon"></i>
+    Quotations
+    {{/link-to}}
+    {{#link-to  'dashboard.projects.home.cur-customers' class="item" }}
+    <i class="users icon"></i>
+    Customers
+    {{/link-to}}
+    {{#link-to  'dashboard.projects.home.cur-agents' class="item" }}
+    <i class="users icon"></i>
+    Agents
+    {{/link-to}}
 
+</div>
+</div>
+{{outlet}}
+
+
+ <!--
 <div class="ui top attached tabular menu">
   <a class="item active" data-tab="first">Projects</a>
   <a class="item" data-tab="second">Enquiries</a>
@@ -188,7 +220,7 @@
 </div>
 <div class="ui bottom attached tab segment " data-tab="fifth"style="background: rgba(256,256,256,0.7)">
 
-</div>
+</div> -->
 <script>
 $('.menu .item')
   .tab()

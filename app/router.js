@@ -8,8 +8,17 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('dashboard', function() {
     this.route('projects', function() {
-      this.route('home');
       this.route('new');
+      this.route('home', function() {
+        this.route('cur-projects');
+        this.route('cur-enqs');
+        this.route('cur-qtns');
+        this.route('cur-home');
+        this.route('cur-agents');
+        this.route('cur-customers');
+      });
+
+
 
       this.route('project', {path: ':id'}, function() {
         this.route('enquiry-form');
