@@ -10,31 +10,16 @@
 
   </tr></thead>
   <tbody>
+    {{#each projects as |project|}}
     <tr>
       <td>
-        <h4 class="ui image header"><div class="content">Project A</div></h4>
+        <h4 class="ui image header"><div class="content">{{project.name}}</div></h4>
     </td>
       <td>
-        Started
+        {{project.status}}
       </td>
     </tr>
-    <tr>
-      <td>
-        <h4 class="ui image header"><div class="content">Project B</div></h4>
-      </td>
-      <td>
-        Delayed
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h4 class="ui image header">
-          <div class="content">Project C</div></h4></td>
-      <td>
-        Started
-      </td>
-    </tr>
-
+{{/each}}
   </tbody>
 </table>
 </div>

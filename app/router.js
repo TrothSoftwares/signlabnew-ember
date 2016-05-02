@@ -13,7 +13,7 @@ Router.map(function() {
         this.route('cur-projects');
         this.route('cur-enqs');
         this.route('cur-qtns');
-        this.route('cur-home');
+        this.route('cur-home'  );
         this.route('cur-agents');
         this.route('cur-customers');
       });
@@ -40,7 +40,7 @@ Router.map(function() {
     });
   });
   this.route('login');
-  this.route('hub');
+  this.route('hub' ,{path:'/'} );
 });
 
 export default Router;

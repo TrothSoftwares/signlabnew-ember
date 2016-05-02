@@ -24,21 +24,10 @@
                     <div class="two fields">
           <div class="field">
             <label>First Name :</label>
-              <label><h4>Anvar</h4></label>
+              <label><h4>{{customer.name}}</h4></label>
               </div>
-          <div class="field">
-            <label>Last Name</label>
-            <input placeholder="Last Name" type="text">
           </div>
-          </div>
-            <div class="field">
-              <label>First Name</label>
-              <input placeholder="First Name" type="text">
-            </div>
-            <div class="field">
-              <label>Last Name</label>
-              <input placeholder="Last Name" type="text">
-            </div>
+
                   <button class="ui primary button" >
         Save
       </button>
@@ -63,50 +52,29 @@
       <div class="ui blue segment con-scrol">
         <h3> Projects</h3>
         <div class="ui top aligned celled list">
-          <div class="item">
 
+
+
+          {{#each customer.projects as |project|}}
+          <div class="item">
             <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
+              <!-- <div class="ui blue button">Open Project</div> -->
+
+              {{#link-to 'dashboard.projects.project.home' project}}
+              <td><button class="mini blue ui button">Open Project</button></td>
+              {{/link-to}}
             </div>
             <img class="ui avatar image" src="/images/pro.png">
-
             <div class="content">
-              <div class="header">Poodle</div>
-              Pending
+              <div class="header">{{project.name}}</div>
+              {{project.status}}
               </div>
+          </div>
+          {{/each}}
 
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
-            </div>
-            <img class="ui avatar middle aligned image" src="/images/pro3.png">
 
-            <div class="content">
-              <div class="header">Diesel</div>
-              Completed
-            </div>
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
-            </div>
-            <img class="ui avatar middle aligned image" src="/images/pro5.png">
 
-            <div class="content">
-              <div class="header">Tarmac</div>
-              Completed
-            </div>
-          </div>
-          <div class="item">
-            <div class="right floated content">
-              <div class="ui blue button">Open Project</div>
-            </div>
-            <div class="content">
-              <div class="header">Froggy</div>
-              Added
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

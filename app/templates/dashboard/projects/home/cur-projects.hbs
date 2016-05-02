@@ -9,38 +9,29 @@
         <tr>
           <th>Sl.No</th>
           <th>Project</th>
-          <th>Started Date</th>
           <th>Due Date</th>
           <th>Status</th>
           <th>Customer</th>
           <th>Agent</th>
-
           <th></th>
         </tr>
       </thead>
       <tbody>
+        {{#each runningProjects as |project|}}
         <tr>
-          <td>1</td>
-          <td>Project A</td>
-          <td>1/2/2016</td>
-          <td>2/3/2016</td>
-          <td>Started</td>
-          <td>Customer A</td>
-          <td>Agent A</td>
+          <td>{{project.id}}</td>
+          <td>{{project.name}}</td>
+          <td>{{moment-format  project.date outputFormat}}</td>
+          <td>{{project.status}}</td>
+          <td>{{project.customer.name}}</td>
+          <td>{{project.agent.name}}</td>
+{{#link-to 'dashboard.projects.project.home' project}}
+<td><button class="mini blue ui button">Open</button></td>
+{{/link-to}}
+</tr>
 
-<a id="ember514" href="/dashboard/projects/sdsdd/home" class="ember-view">          <td><button class="mini blue ui button">Open</button></td>
-</a>        </tr>
-        <tr>
-          <td>2</td>
-          <td>Project B</td>
-          <td>12/2/2016</td>
-          <td>5/3/2016</td>
-          <td>Started</td>
-          <td>Customer C</td>
-          <td>Agent B</td>
+{{/each}}
 
-<a id="ember531" href="/dashboard/projects/sdsdd/home" class="ember-view">          <td><button class="mini blue ui button">Open</button></td>
-</a>        </tr>
       </tbody>
     </table>
     </div>
@@ -53,32 +44,29 @@
         <tr>
           <th>Sl.No</th>
           <th>Project</th>
-          <th>Started Date</th>
           <th>Due Date</th>
           <th>Status</th>
           <th>Customer</th>
+          <th>Agent</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
+        {{#each processingProjects as |project|}}
         <tr>
-          <td>1</td>
-          <td>Project A</td>
-          <td>1/2/2016</td>
-          <td>2/3/2016</td>
-          <td>Started</td>
-          <td>Customer A</td>
-<a id="ember514" href="/dashboard/projects/sdsdd/home" class="ember-view">          <td><button class="mini blue ui button">Open</button></td>
-</a>        </tr>
-        <tr>
-          <td>2</td>
-          <td>Project B</td>
-          <td>12/2/2016</td>
-          <td>5/3/2016</td>
-          <td>Started</td>
-          <td>Customer C</td>
-<a id="ember531" href="/dashboard/projects/sdsdd/home" class="ember-view">          <td><button class="mini blue ui button">Open</button></td>
-</a>        </tr>
+          <td>{{project.id}}</td>
+          <td>{{project.name}}</td>
+          <td>{{moment-format  project.date outputFormat}}</td>
+          <td>{{project.status}}</td>
+          <td>{{project.customer.name}}</td>
+          <td>{{project.agent.name}}</td>
+{{#link-to 'dashboard.projects.project.home' project.id}}
+<td><button class="mini blue ui button">Open</button></td>
+{{/link-to}}
+</tr>
+
+{{/each}}
+
       </tbody>
     </table>
     </div>

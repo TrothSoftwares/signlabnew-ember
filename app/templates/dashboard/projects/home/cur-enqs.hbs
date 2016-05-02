@@ -12,37 +12,32 @@
           <th>Customer</th>
           <th>Agent </th>
           <th>Date</th>
-
-
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1001</td>
-          <td>Cust A</td>
-          <td>Agent C</td>
-          <td>2/3/2016</td>
 
 
-<a id="ember514" href="/dashboard/projects/sdsdd/home" class="ember-view">          <td><button class="mini blue ui button">Open</button></td>
-</a>        </tr>
-        <tr>
-          <td>1003</td>
-          <td>Cust B</td>
-          <td>Agent A</td>
-          <td>12/3/2016</td>
 
-<a id="ember531" href="/dashboard/projects/sdsdd/home" class="ember-view">          <td><button class="mini blue ui button">Open</button></td>
-</a>        </tr>
-<tr>
-  <td>1004</td>
-  <td>Cust C</td>
-  <td>Agent B</td>
-  <td>5/3/2016</td>
 
-<a id="ember531" href="/dashboard/projects/sdsdd/home" class="ember-view">          <td><button class="mini blue ui button">Open</button></td>
-</a>        </tr>
+
+        {{#each enquiries as |enquiry|}}
+      <tr>
+          <td>{{enquiry.id}}</td>
+          <td>{{enquiry.project.customer.name}}</td>
+          <td>{{enquiry.project.agent.name}}</td>
+          <td>{{moment-format  enquiry.date outputFormat}}</td>
+
+
+
+
+          {{#link-to 'dashboard.projects.project.home' enquiry.project.id}}
+          <td><button class="mini blue ui button">Open</button></td>
+          {{/link-to}}
+
+
+</tr>
+{{/each}}
       </tbody>
     </table>
     </div>

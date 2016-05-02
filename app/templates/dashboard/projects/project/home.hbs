@@ -9,25 +9,27 @@
   <div class="ui divider"></div>
 
       <div class="field">
-          <label><h4 class="ui dividing header"> Project Name :</h4></label>
+          <label><h4 class="ui dividing header"> Project Name :</h4 >{{project.name}}</label>
     </div>
 
       <div class="two  fields">
 
     <div class="field">
         <label>Added Date :</label>
+        <!-- TODO: ADDED DATEto be done -->
     </div>
     <div class="field">
         <label>Started Date :</label>
+        <!-- TODO: STARTED DATEto be done -->
     </div>
   </div>
   <div class="two  fields">
   <div class="field">
-    <label>Due Date :</label>
+    <label>Due Date :{{moment-format project.duedate Outputformat}}</label>
   </div>
     <div class="field">
   <div class="ui label">
-  3 Days Remaining
+  {{moment-from-now project.duedate }}
   <div class="detail">  </div>
 </div>
 
@@ -41,8 +43,36 @@
 <div class="ui black segment">
 
     <h3 class="ui header">Project Status</h3>
+
+
+    <div class="ui ordered steps">
+      <div class="completed step">
+        <div class="content">
+          <div class="title">Shipping</div>
+          <div class="description">Choose your shipping options</div>
+        </div>
+      </div>
+      <div class="completed step">
+        <div class="content">
+          <div class="title">Billing</div>
+          <div class="description">Enter billing information</div>
+        </div>
+      </div>
+      <div class="active step">
+        <div class="content">
+          <div class="title">Confirm Order</div>
+          <div class="description">Verify order details</div>
+        </div>
+      </div>
+    </div>
+    
+
+
     <div class="ui form">
   <div class="inline fields">
+
+
+
 
     <div class="field">
       <div class="ui radio checkbox">

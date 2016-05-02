@@ -7,15 +7,24 @@
     <div class="ui small form segment">
       <div class="field">
         <label>User Name</label>
-        <input placeholder="User Name" type="text">
+        {{input type="text" value=email placeholder="E-mail address"}}
+
       </div>
       <div class="field">
         <label>Password</label>
-        <input placeholder="Password" type="text">
+
+
+
+
+
+
+
+        {{input type="password" value=password placeholder="Password"}}
       </div>
       {{#link-to  'hub' }}
+      <div class="ui blue small submit button" {{action "authenticate" disabled=isLoginButtonDisabled}}>Login</div>
 
-    <div class="ui blue small submit button">Submit</div>
+    
     {{/link-to}}
 
   </div>
