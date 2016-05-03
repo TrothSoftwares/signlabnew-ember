@@ -4,22 +4,34 @@
     <h2 class="ui dividing header"> Add New Customer</h2>
     <form class="ui form">
   <div class="field">
-    <label>First Name</label>
-    <input type="text" name="first-name" placeholder="First Name">
+    <label>Name</label>
+    {{input type="text" value=customername placeholder="First Name"}}
   </div>
+
+
   <div class="field">
-    <label>Last Name</label>
-    <input type="text" name="last-name" placeholder="Last Name">
+    <label>Contact Name</label>
+    {{input type="text" value=customercontactname placeholder="Contact Name"}}
   </div>
+
+
   <div class="field">
-    <label>First Name</label>
-    <input type="text" name="first-name" placeholder="First Name">
+    <label>Contact Number</label>
+    {{input type="text" value=customercontactno placeholder="Contact Number"}}
   </div>
+
+
   <div class="field">
-    <label>Last Name</label>
-    <input type="text" name="last-name" placeholder="Last Name">
+    <label>Other Contact Number</label>
+    {{input type="text" value=othercontactnumber placeholder="Other Contact Number"}}
   </div>
-  <button class="ui primary button" type="submit">Submit</button>
+
+  <div class="field">
+    <label>Other Reference Details </label>
+    {{input type="text" value=otherefdetails placeholder="Other Reference Details"}}
+</div>
+
+  <button class="ui primary button" type="submit"  {{action "createCustomer"}}>Submit</button>
 </form>
   </div>
 </div>
