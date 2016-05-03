@@ -6,14 +6,16 @@
 <table class="ui very basic collapsing celled table">
   <thead>
     <tr><th style="width:91% ">Projects</th>
-    <th>Stauts</th>
+    <th>Status</th>
 
   </tr></thead>
   <tbody>
     {{#each projects as |project|}}
     <tr>
       <td>
+        {{#link-to 'dashboard.projects.project.home' project.id}}
         <h4 class="ui image header"><div class="content">{{project.name}}</div></h4>
+        {{/link-to}}
     </td>
       <td>
         {{project.status}}

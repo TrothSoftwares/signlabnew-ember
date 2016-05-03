@@ -5,6 +5,8 @@ export default Ember.Route.extend({
 
 
 
+
+
   model: function() {
     // return this.store.findAll('project' ,{reload: true});
     return Ember.RSVP.hash({
