@@ -8,7 +8,7 @@ export default Ember.Route.extend({
         agents : this.store.findAll('agent'),
 
       });
-    },
+    }, 
 
 
 
