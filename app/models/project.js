@@ -10,8 +10,4 @@ export default DS.Model.extend({
    status :DS.attr('string'),
    duedate: DS.attr('date'),
    versions:DS.attr(),
-
-
-
-
 });
