@@ -12,29 +12,25 @@
   <div class="ui divider"></div>
 
   <div class="inline fields">
-    <div class="twelve wide field"><label>Client</label><input type="text" placeholder="Client"></div>
-    <div class="four wide field">
-      <div class="ui animated secondary button" tabindex="0">
-        <div class="visible content">Add New</div>
-        <div class="hidden content">
-          <i class="add user icon"></i>
-        </div>
-      </div>
-        </div>
+    <div class="twelve wide field"><label>Customer</label>
+      {{ember-selectize
+      content=customers
+      optionValuePath="content.id"
+      optionLabelPath="content.name"
+      selection=project.customer
+      placeholder="Select a Customer" }}
+    </div>
   </div>
   <div class="inline fields">
     <div class="twelve wide field">
       <label>Agent</label>
-      <input type="text" placeholder="Agent">
+      {{ember-selectize
+      content=agents
+      optionValuePath="content.id"
+      optionLabelPath="content.name"
+      selection=project.agent
+      placeholder="Select a Agent" }}
     </div>
-    <div class="four wide field">
-      <div class="ui animated secondary button" tabindex="0">
-        <div class="visible content">Add New</div>
-        <div class="hidden content">
-          <i class="add user icon"></i>
-        </div>
-      </div>
-        </div>
   </div>
   <div class="inline fields">
     <div class="fourteen wide field">

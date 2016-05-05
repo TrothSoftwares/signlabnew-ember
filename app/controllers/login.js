@@ -13,10 +13,6 @@ session: Ember.inject.service('session'),
         this.get('session').authenticate('authenticator:devise', this.get('email'), this.get('password')).catch(function(){
 
 
-
-
-
-
           controller.notifications.addNotification({
             message: 'Username or password is incorrect!' ,
             type: 'error',
