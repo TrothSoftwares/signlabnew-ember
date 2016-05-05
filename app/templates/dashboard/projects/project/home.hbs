@@ -44,62 +44,31 @@
 
     <h3 class="ui header">Project Status</h3>
 
-
-    <div class="ui ordered steps">
-      <div class="completed step">
+    <div class="ui four steps">
+      <div class="step">
         <div class="content">
-          <div class="title">Shipping</div>
-          <div class="description">Choose your shipping options</div>
-        </div>
-      </div>
-      <div class="completed step">
-        <div class="content">
-          <div class="title">Billing</div>
-          <div class="description">Enter billing information</div>
+          <div class="title">Added</div>
         </div>
       </div>
       <div class="active step">
         <div class="content">
-          <div class="title">Confirm Order</div>
-          <div class="description">Verify order details</div>
+          <div class="title">Started</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <div class="content">
+          <div class="title">Completed</div>
+        </div>
+      </div>
+
+      <div class="disabled step">
+        <div class="content">
+          <div class="title">Delayed</div>
         </div>
       </div>
     </div>
-    
 
 
-    <div class="ui form">
-  <div class="inline fields">
-
-
-
-
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="frequency" checked="checked">
-        <label>Added</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="frequency">
-        <label>Started</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="frequency">
-        <label>Completed</label>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui radio checkbox">
-        <input type="radio" name="frequency">
-        <label>Delayed</label>
-      </div>
-    </div>
-  </div>
-</div>
 </div>
 </div>
 <div class="nine wide column">
@@ -112,10 +81,10 @@
         </div>
         <div class="ui form">
         <div class="field">
-            <label> Name :</label>
+            <label> Name : {{project.customer.name}}</label>
         </div>
         <div class=" field">
-            <label> Contact :</label>
+            <label> Contact : {{project.customer.contactno}}</label>
           </div>
         <div class="description">
         </div>
@@ -129,10 +98,10 @@
         </div>
         <div class="ui form">
         <div class="field">
-            <label> Name :</label>
+            <label> Name : {{project.agent.name}}</label>
         </div>
         <div class=" field">
-            <label> Contact :</label>
+            <label> Contact : {{project.agent.contactno}}</label>
           </div>
         <div class="description">
         </div>

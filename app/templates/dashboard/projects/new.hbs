@@ -8,10 +8,11 @@
     <form class="ui form">
   <div class="field">
     <label>Project Name</label>
-    <input type="text" name="first-name" placeholder="Project Name">
+    {{input type="text" value=name placeholder="Project Name" }}
 
   </div>
-    <button class="ui black button" type="submit">Add Project </button>
+
+      <div class="ui black small submit button {{isCreateProjectButtonDisabled}}" {{action "createProject"}}>Add Project</div>
 </form>
 </div>
 </div>
