@@ -1,0 +1,7 @@
+{
+  "name": "signlabnew-ember",
+  "version": "1.2.3",
+  "options": {
+    "enabledEnvironments": ["development", "production"]
+  }
+}
