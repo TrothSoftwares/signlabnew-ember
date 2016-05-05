@@ -5,9 +5,7 @@
        <form class="ui form">
   <div class=" eight wide field">
     <h4 class="ui  header">Project Name</h4>
-
-
-        <input type="text" name="shipping[first-name]" placeholder="First Name">
+        {{input type="text" placeholder="First Name" value=project.name}}
   </div>
   <div class="ui divider"></div>
 
@@ -35,26 +33,56 @@
   <div class="inline fields">
     <div class="fourteen wide field">
       <label>Date</label>
-      <input type="text" placeholder="Date">
+  {{pikaday-input value=project.enquiry.date}}
     </div>
-
   </div>
+
 </form>
 <div class="ui segment black">
   <h4 class="ui  header">Items</h4>
+  {{#each project.items as |item index|}}
   <div class="ui segment black">
     <h5 class="ui left floated header">Item 1</h5>
       <button class="ui secondary mini right floated button">Remove Item</button>
       <div class="ui form">
-  <div class="inline field">
-    <label>Last name</label>
-    <input type="text" placeholder="Full Name">
+        <div class="inline field">
+          <label>ID</label>
+          {{item.id}}
+        </div>
+        <div class="inline field">
+          <label>Dimensions </label>
+          {{input type="text" placeholder="Dimesions" value=item.dimensions}}
+        </div>
+        <div class="inline field">
+          <label>Description </label>
+          {{input type="text" placeholder="Description" value=item.description}}
+        </div>
+        <div class="inline field">
+          <label>ItemType</label>
+          {{ember-selectize
+          content=itemtypes
+          optionValuePath="content.id"
+          optionLabelPath="content.name"
+          selection=item.itemtype
+          placeholder="Select Itemtype" }}
+        </div>
+        <div class="inline field">
+          <label>JobType</label>
+          {{ember-selectize
+          content=jobtypes
+          optionValuePath="content.id"
+          optionLabelPath="content.name"
+          selection=item.jobtype
+          placeholder="Select Jobtype" }}
+        </div>
+      </div>
   </div>
-</div>
+  {{/each}}
 
+<button class="ui secondary mini right floated button" {{action "AddNewItem"}}>Add New Item</button>
 
-  </div>
 </div>
+  <button class="ui secondary mini right floated button" {{action "saveProject"}}>Save</button>
 </div>
 </div>
 </div>
