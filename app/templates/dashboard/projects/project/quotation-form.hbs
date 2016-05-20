@@ -103,33 +103,106 @@
     <div class="ui divider"></div>
 
 
+    {{#if isOm}}   {{!  IF OM}}
+     {{#if (eq project.fstatusom 'forwarded')}}
+    <button class="ui blue fluid button" {{action "AcceptQuotationOM" project}}>
+      <i class="print icon"></i> Accept
+    </button>
+    <div class="ui divider"></div>
+    <button class="ui blue fluid button"  {{action "RejectQuotationOM" project}}>
+      <i class="print icon"></i> Reject
+    </button>
+    {{/if}}
+    {{/if}}
 
 
 
+
+
+    {{#if isGm}}   {{!  IF GM}}
+    {{#if (eq project.fstatusgm 'forwarded')}}
+   <button class="ui blue fluid button" {{action "AcceptQuotationGM" project}}>
+     <i class="print icon"></i> Accept
+   </button>
+   <div class="ui divider"></div>
+   <button class="ui blue fluid button"  {{action "RejectQuotationGM" project}}>
+     <i class="print icon"></i> Reject
+   </button>
+   {{/if}}
+   {{/if}}
+
+
+
+   {{!  IF NORMAL USER}}
+
+    {{#if (not (or isOm  isGm))}}
+
+
+
+    {{! GM STATUSES}}
 
 
     {{#if (eq project.fstatusgm 'forwarded')}}
-    <button class="ui blue fluid button" >
-      <i class="print icon"></i> Forwarded to GM
-    </button>
-    {{else}}
+    <div class="ui info message"> Forwarded to GM
+    </div>
+    {{/if}}
+
+
+    {{#if (or (eq project.fstatusgm 'rejected')   (eq project.fstatusgm '')) }}
     <button class="ui blue fluid button"  {{action "forwardToGm" project}}>
       <i class="print icon"></i> Forward To GM
     </button>
     {{/if}}
 
+
+    {{#if (eq project.fstatusgm 'accepted')}}
+    <div class="ui success message"> Accepted by GM
+    </div>
+    {{/if}}
+
+    {{#if (eq project.fstatusgm 'rejected')}}
+    <div class="ui error message">Rejected by GM
+    </div>
+    {{/if}}
+
+
+
+
+      {{! OM STATUSES}}
     <div class="ui divider"></div>
       {{#if (eq project.fstatusom 'forwarded')}}
-      <button class="ui blue fluid button" >
-        <i class="print icon"></i> Forwarded to OM
-      </button>
-      {{else}}
+      <div class="ui info message"> Forwarded to OM
+      </div>
+      {{/if}}
+
+      {{#if (or (eq project.fstatusom 'rejected')   (eq project.fstatusom '')) }}
       <button class="ui blue fluid button"  {{action "forwardToOm" project}}>
         <i class="print icon"></i> Forward To OM
       </button>
       {{/if}}
+
+
+      {{#if (eq project.fstatusom 'accepted')}}
+      <div class="ui success message">
+         Accepted by OM
+      </div>
+      {{/if}}
+
+      {{#if (eq project.fstatusom 'rejected')}}
+      <div class="ui error message">
+          Rejected by OM
+      </div>
+      {{/if}}
+
+
+      {{/if}}{{!if not om or gm}}
+
+
      <div class="ui divider"></div>
-    <button class="ui blue fluid button"><i class="print icon"></i>Start Project</button>
+
+     {{#if  (eq project.status 'created')}}
+     <button class="ui blue fluid button" {{action "startProject" project}}><i class="print icon"></i>Start Project</button>
+    {{/if}}
 
 </div>
 </div>

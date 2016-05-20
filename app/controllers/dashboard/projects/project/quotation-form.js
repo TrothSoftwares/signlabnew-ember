@@ -51,7 +51,34 @@ printQuotation :function(){
     forwardToGm:function(project){
       project.set('fstatusgm' , 'forwarded');
       project.save();
+    },
+
+
+    AcceptQuotationOM:function(project){
+      project.set('fstatusom', 'accepted');
+      project.save();
+    },
+    RejectQuotationOM:function(project){
+      project.set('fstatusom', 'rejected');
+      project.save();
+    },
+
+    AcceptQuotationGM:function(project){
+      project.set('fstatusgm', 'accepted');
+      project.save();
+    },
+
+    RejectQuotationGM:function(project){
+      project.set('fstatusgm', 'rejected');
+      project.save();
+    },
+
+    startProject: function(project){
+      project.set('status' , 'started');
+      project.save();
     }
+
+
 
 
 }
