@@ -6,7 +6,7 @@
          <div class="inline fields">
            <div class="fourteen wide field">
              <label>Date</label>
-             <input type="text" placeholder="Date"  value={{project.quotation.date}}>
+             {{pikaday-input value=project.quotation.date}}      {{!Using pikaday addon to use date calendar}}
            </div>
 
          </div>
@@ -15,17 +15,15 @@
   <div class="inline fields">
     <div class="fourteen wide field">
       <label>Subject</label>
-      <input type="text" placeholder=" Subject">
+      {{input type="text" placeholder="Subject" value=project.quotation.subject}}
     </div>
 
   </div>
   <div class="inline fields">
     <div class="fourteen wide field">
       <label>Body</label>
-      <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"placeholder=" Body">
-      </textarea>
+      <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"placeholder=" Body">{{project.quotation.body}}</textarea>
     </div>
-
   </div>
 
 </form>
@@ -43,20 +41,25 @@
     </tr>
   </thead>
   <tbody>
+    {{#each project.items as |item index|}}
     <tr>
-      <td>1</td>
-      <td>Dimensios: 200x140</td>
-      <td ><div class="ui mini  input"><input type="text" placeholder=" "></div></td>
-      <td ><div class="ui mini  input"><input type="text" placeholder=" "></div></td>
-      <td ><div class="ui mini  input"><input type="text" placeholder=" "></div></td>
+      <td>{{incrementone index}}</td>
+      <td>
+        <b>Dimensions:</b> {{item.dimensions}}<br>
+        						<b>Specification:</b> {{item.description}}
+      </td>
+      <td ><div class="ui mini  input">
+        {{input type="text" placeholder="Unit" value=item.unit}}
+      </div></td>
+      <td ><div class="ui mini  input">
+        {{input type="text" placeholder="Rate" value=item.rate}}
+      </div></td>
+      <td ><div class="ui mini  input">
+          {{input type="text" placeholder="Amount" value=item.amount}}
+        </div></td>
     </tr>
-    <tr >
-      <td>2</td>
-      <td> Dimensios: 100x150</td>
-      <td ><div class="ui mini  input"><input type="text" placeholder=" "></div></td>
-      <td ><div class="ui mini  input"><input type="text" placeholder=" "></div></td>
-      <td ><div class="ui mini  input"><input type="text" placeholder=" "></div></td>
-    </tr>
+    {{/each}}
+
 
   </tbody>
 </table>
@@ -65,11 +68,25 @@
 
 <div class="ui secondary segment ">
   <div class="ui form">
-    <div class="field"><label>Payment:</label><input type="text"></div>
-    <div class="field"><label>Delivery:</label><input type="text"></div>
-    <div class="field"><label>Power:</label><input type="text"></div>
-    <div class="field"><label>Store:</label><input type="text"></div>
-    <div class="field"><label>Note:</label><input type="text"></div>
+    <div class="field"><label>Payment:</label>
+      {{input type="text" value=project.quotation.payment}}
+    </div>
+    <div class="field"><label>Delivery:</label>
+      {{input type="text" value=project.quotation.delivery}}
+    </div>
+    <div class="field"><label>Power:</label>
+      {{input type="text" value=project.quotation.power}}
+    </div>
+
+
+
+
+    <div class="field"><label>Store:</label>
+      {{input type="text" value=project.quotation.storetext}}
+    </div>
+    <div class="field"><label>Note:</label>
+      {{input type="text" value=project.quotation.note}}
+    </div>
 
   </div>
 </div>
@@ -80,9 +97,9 @@
 </div>
 <div class="three wide column">
   <div class="ui black segment" style="background: rgba(256,256,256,0.7)">
-    <button class="ui blue fluid  button" style="margin-bottom:10px" ><i class="save icon"></i>Save</button>
+    <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveQuotation"}}><i class="save icon"></i>Save</button>
     <div class="ui divider"></div>
-    <button class="ui blue fluid button" style="margin-bottom:10px" ><i class="print icon"></i>Print</button>
+    <button class="ui blue fluid button" style="margin-bottom:10px" {{action "printQuotation"}} ><i class="print icon"></i>Print</button>
     <div class="ui divider"></div>
     <button class="ui blue fluid button"><i class="print icon"></i>Forward to GM</button>
     <div class="ui divider"></div>

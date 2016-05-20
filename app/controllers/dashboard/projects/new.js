@@ -3,14 +3,17 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
 
-  isCreateProjectButtonDisabled: Ember.computed('name',  function() {
-    if(Ember.isEmpty(this.get('name')))
+  isCreateProjectButtonDisabled: Ember.computed('name' , 'duedate',  function() {
+    if(Ember.isEmpty(this.get('name')) ||
+    Ember.isEmpty(this.get('duedate'))
+    )
     {return 'disabled';}
     else{return '';}
   }),
 
 
   actions:{
+
 
     createProject: function(){
         var controller = this;
@@ -20,7 +23,8 @@ export default Ember.Controller.extend({
           name: this.get('name'),
           customer : customer,
           agent : agent,
-          status :'created'
+          status :'created',
+          duedate : this.get('duedate')
         });
 
           project.save().then(function(){

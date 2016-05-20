@@ -9,5 +9,6 @@ export default DS.Model.extend({
    quotation: DS.belongsTo('quotation' ,{async:true}),
    status :DS.attr('string'),
    duedate: DS.attr('date'),
+   addeddate : DS.attr('date'),
    versions:DS.attr(),
 });

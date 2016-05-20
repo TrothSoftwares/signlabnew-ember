@@ -8,6 +8,19 @@
     <h4 class="ui  header">Project Name</h4>         {{! First place holder project name}}
         {{input type="text" placeholder="First Name" value=project.name}}
   </div>
+
+  <div class="row row-margin">
+                           <div class="col-md-2">
+                             <label for="" class="labels">Date</label>
+                           </div>
+                           Duedate
+                                  <div class="col-md-10 pickaday">
+                                    {{pikaday-input value=project.duedate  format="DD-MM-YYYY" theme="form-input" }}
+                                  </div>
+                                </div>
+
+
+
   <div class="ui divider"></div>
 
   <div class="inline fields">
