@@ -61,3 +61,19 @@ margin: 50px;
 {
   background: rgba(256,256,256,0.7) !important ;
 }
+
+.only-print
+{
+  display: none;
+}
+
+@media print {
+.no-print
+{
+  display: none !important;
+}
+.only-print
+{
+  display: block;
+}
+}
