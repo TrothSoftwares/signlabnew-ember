@@ -55,13 +55,10 @@
         Home
         {{/link-to}}
 
-        <!-- <div class="ui dropdown item">
-          <i class="user icon"></i>Logged in as Admin
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <a class="item"><i class="sign out icon"></i> Logout </a>
-          </div>
-        </div> -->
+
+
+
+
 
 
 
@@ -69,7 +66,7 @@
 
 
         {{#ui-dropdown class="item" }}
-        <i class="user icon"></i>Logged in as Admin
+        <i class="user icon"></i>Logged in {{userEmail}}
         <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item" {{action "logout"}}>

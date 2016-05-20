@@ -43,7 +43,15 @@ printQuotation :function(){
     },
 
 
-    acforwardToGM : function(){}
+    forwardToOm:function(project){
+      project.set('fstatusom' , 'forwarded');
+      project.save();
+    },
+
+    forwardToGm:function(project){
+      project.set('fstatusgm' , 'forwarded');
+      project.save();
+    }
 
 
 }

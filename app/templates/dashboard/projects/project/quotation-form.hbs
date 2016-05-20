@@ -104,14 +104,31 @@
 
 
 
-    <button class="ui blue fluid button" {{acforwardToGM}}><i class="print icon"></i>Forward to GM</button>
 
 
 
+
+    {{#if (eq project.fstatusgm 'forwarded')}}
+    <button class="ui blue fluid button" >
+      <i class="print icon"></i> Forwarded to GM
+    </button>
+    {{else}}
+    <button class="ui blue fluid button"  {{action "forwardToGm" project}}>
+      <i class="print icon"></i> Forward To GM
+    </button>
+    {{/if}}
 
     <div class="ui divider"></div>
-    <button class="ui blue fluid button"><i class="print icon"></i>Forward to OM</button>
-    <div class="ui divider"></div>
+      {{#if (eq project.fstatusom 'forwarded')}}
+      <button class="ui blue fluid button" >
+        <i class="print icon"></i> Forwarded to OM
+      </button>
+      {{else}}
+      <button class="ui blue fluid button"  {{action "forwardToOm" project}}>
+        <i class="print icon"></i> Forward To OM
+      </button>
+      {{/if}}
+     <div class="ui divider"></div>
     <button class="ui blue fluid button"><i class="print icon"></i>Start Project</button>
 
 </div>

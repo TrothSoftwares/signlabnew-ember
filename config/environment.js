@@ -70,6 +70,7 @@ ENV['ember-simple-auth'] = {
   }
 
   if (environment === 'production') {
+    ENV.APP.host = 'http://signlabrails.herokuapp.com';
 
   }
 
