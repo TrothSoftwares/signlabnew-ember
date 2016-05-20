@@ -80,5 +80,23 @@ export default Ember.Controller.extend({
 
 
 
+  deleteItem: function(item){
+
+    console.log("sdfsdf");
+
+        var controller = this;
+        item.destroyRecord().then(function () {
+        }).catch(function () {
+          controller.notifications.addNotification({
+            message: 'Item cannot be deleted at this moment' ,
+            type: 'error',
+            autoClear: true
+          });
+          item.rollbackAttributes();
+        });
+      },
+
+
+
   }
 });

@@ -16,6 +16,7 @@ Router.map(function() {
         this.route('cur-home'  );
         this.route('cur-agents');
         this.route('cur-customers');
+        this.route('pen-qtns');
       });
 
 
@@ -27,6 +28,7 @@ Router.map(function() {
         this.route('design');
         this.route('home');
       });
+
     });
     this.route('customers', function() {
       this.route('customer', {path: ':id'});
@@ -42,5 +44,8 @@ Router.map(function() {
   this.route('login');
   this.route('hub' ,{path:'/'} );
 });
+
+
+
 
 export default Router;

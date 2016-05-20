@@ -20,7 +20,7 @@ export default Ember.Controller.extend({
           name: this.get('name'),
           customer : customer,
           agent : agent,
-          status :'added'
+          status :'created'
         });
 
           project.save().then(function(){

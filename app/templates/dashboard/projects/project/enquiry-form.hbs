@@ -1,5 +1,5 @@
 <div class="twelve wide column talha">
-Suhail
+
     <div class="ui segment black">
       <div class="enq-form" style=" max-height: 440px;overflow: auto; padding-right: 10px">
        <h2 class="ui center dividing aligned header" >Enquiry Form </h2>
@@ -42,13 +42,12 @@ Suhail
   <h4 class="ui  header">item</h4>
   {{#each project.items as |item index|}}
   <div class="ui segment black">
+
     <h5 class="ui left floated header">Please Enter Requirement:</h5>  {{! Problem: Item has to keep incrementing with new new add item}}
-      <button class="ui secondary mini right floated button">Remove Item</button>
+    <h5 class="ui left floated header">Item {{ incrementone index}}</h5>
+      <button class="ui secondary mini right floated button" {{action "deleteItem" item}}>Remove Item</button>
       <div class="ui form">
-        <div class="inline field">
-          <label>ID</label>
-          {{item.id}}
-        </div>
+
         <div class="inline field">
           <label>Dimensions </label>
           {{input type="text" placeholder="Dimesions" value=item.dimensions}}
