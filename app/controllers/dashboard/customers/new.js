@@ -31,7 +31,7 @@ var controller = this;
        }).catch(function(){
          console.log('some error ');
 
-       })
+       });
 
 
 

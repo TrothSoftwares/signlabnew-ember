@@ -5,13 +5,13 @@ Suhail
        <h2 class="ui center dividing aligned header" >Enquiry Form </h2>
        <form class="ui form">
   <div class=" eight wide field">
-    <h4 class="ui  header">Project Name</h4>
+    <h4 class="ui  header">Project Name</h4>         {{! First place holder project name}}
         {{input type="text" placeholder="First Name" value=project.name}}
   </div>
   <div class="ui divider"></div>
 
   <div class="inline fields">
-    <div class="twelve wide field"><label>Customer</label>
+    <div class="twelve wide field"><label>Customer</label>  {{!Second place holder customer}}
       {{ember-selectize
       content=customers
       optionValuePath="content.id"
@@ -21,8 +21,7 @@ Suhail
     </div>
   </div>
   <div class="inline fields">
-    <div class="twelve wide field">
-      <label>Agent</label>
+    <div class="twelve wide field"><label>Agent</label>   {{!Third place holder agent  }}
       {{ember-selectize
       content=agents
       optionValuePath="content.id"
@@ -34,16 +33,16 @@ Suhail
   <div class="inline fields">
     <div class="fourteen wide field">
       <label>Date</label>
-  {{pikaday-input value=project.enquiry.date}}
+      {{pikaday-input value=project.enquiry.date}}      {{!Using pikaday addon to use date calendar}}
     </div>
   </div>
 
 </form>
 <div class="ui segment black">
-  <h4 class="ui  header">Items</h4>
+  <h4 class="ui  header">item</h4>
   {{#each project.items as |item index|}}
   <div class="ui segment black">
-    <h5 class="ui left floated header">Item 1</h5>
+    <h5 class="ui left floated header">Please Enter Requirement:</h5>  {{! Problem: Item has to keep incrementing with new new add item}}
       <button class="ui secondary mini right floated button">Remove Item</button>
       <div class="ui form">
         <div class="inline field">
