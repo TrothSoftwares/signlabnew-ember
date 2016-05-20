@@ -1,11 +1,11 @@
-<div class="eleven wide column">
-    <div class="ui segment black">
+<div class="eleven wide column no-print">
+    <div class="ui segment black ">
       <div class="enq-form" style=" max-height: 440px;overflow: auto; padding-right: 10px">
        <h2 class="ui center dividing aligned header" >Quotation Form </h2>
        <form class="ui form">
          <div class="inline fields">
            <div class="fourteen wide field">
-             <label>Date</label>
+             <label style="width:80px">Date</label>
              {{pikaday-input value=project.quotation.date}}      {{!Using pikaday addon to use date calendar}}
            </div>
 
@@ -14,14 +14,14 @@
 
   <div class="inline fields">
     <div class="fourteen wide field">
-      <label>Subject</label>
+      <label style="width:80px">Subject</label>
       {{input type="text" placeholder="Subject" value=project.quotation.subject}}
     </div>
 
   </div>
   <div class="inline fields">
     <div class="fourteen wide field">
-      <label>Body</label>
+      <label style="width:80px">Body</label>
       <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"placeholder=" Body">{{project.quotation.body}}</textarea>
     </div>
   </div>
@@ -77,10 +77,6 @@
     <div class="field"><label>Power:</label>
       {{input type="text" value=project.quotation.power}}
     </div>
-
-
-
-
     <div class="field"><label>Store:</label>
       {{input type="text" value=project.quotation.storetext}}
     </div>
@@ -95,7 +91,7 @@
 </div>
 </div>
 </div>
-<div class="three wide column">
+<div class="three wide column no-print">
   <div class="ui black segment" style="background: rgba(256,256,256,0.7)">
     <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveQuotation"}}><i class="save icon"></i>Save</button>
     <div class="ui divider"></div>
@@ -205,8 +201,81 @@
     {{/if}}
 
 </div>
+
 </div>
 
 
 
 {{outlet}}
+<div class="print-box only-print">
+  <h2 class="ui center dividing aligned header" >Quotation Form </h2>
+  <form class="ui form">
+    <div class="inline fields">
+      <div class="fourteen wide field">
+        <label>Date</label>
+        {{pikaday-input value=project.quotation.date}}      {{!Using pikaday addon to use date calendar}}
+      </div>
+
+    </div>
+<div class="ui divider"></div>
+<div class="inline fields">
+<div class="fourteen wide field center aligned">
+ <label>Subject</label>
+ {{project.quotation.subject}}
+</div>
+
+</div>
+<div class="inline fields">
+<div class="fourteen wide field">
+ <label>Body</label>
+ <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"placeholder=" Body">{{project.quotation.body}}</textarea>
+</div>
+</div>
+</form>
+<table class="ui celled center aligned table">
+  <thead>
+    <tr>
+      <th>Sl.No</th>
+      <th>Scope of Work</th>
+      <th>Unit</th>
+      <th>Rate</th>
+      <th>Amount</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {{#each project.items as |item index|}}
+    <tr>
+      <td>{{incrementone index}}</td>
+      <td>
+        <b>Dimensions:</b> {{item.dimensions}}<br>
+        						<b>Specification:</b> {{item.description}}
+      </td>
+      <td >{{item.unit}}</td>
+      <td >{{item.rate}}</td>
+      <td >{{item.amount}}</td>
+    </tr>
+    {{/each}}
+
+
+  </tbody>
+</table>
+<div class="ui form">
+  <div class="field"><label>Payment:</label>
+    {{project.quotation.payment}}
+  </div>
+  <div class="field"><label>Delivery:</label>
+    {{project.quotation.delivery}}
+  </div>
+  <div class="field"><label>Power:</label>
+    {{project.quotation.power}}
+  </div>
+  <div class="field"><label>Store:</label>
+    {{project.quotation.storetext}}
+  </div>
+  <div class="field"><label>Note:</label>
+    {{project.quotation.note}}
+  </div>
+
+</div>
+</div>
