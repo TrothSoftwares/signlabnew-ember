@@ -22,10 +22,12 @@
     Quotations
     {{/link-to}}
 
+    {{#if (or isOm isGm )}}
     {{#link-to  'dashboard.projects.home.pen-qtns' class="item" }}
     <i class="file outline icon"></i>
   Pending  Quotations
     {{/link-to}}
+    {{/if}}
      {{! Removed bcoz not necessary}}
     <!-- {{#link-to  'dashboard.projects.home.cur-customers' class="item" }}
     <i class="users icon"></i>

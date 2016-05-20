@@ -36,9 +36,14 @@ actions:{
     });
   });
 },
+
+
 printQuotation :function(){
       window.print();
-    }
+    },
+
+
+    acforwardToGM : function(){}
 
 
 }

@@ -2,18 +2,12 @@
   <div class="app-wrap" >
     <div class="ui attached stackable teal menu inverted no-print" >
 
-      {{!
-
-      }}
-
-
-
 
       {{#ui-dropdown class="item" }}
       <i class="folder icon"></i> Projects
       <i class="dropdown icon"></i>
       <div class="menu">
-        {{#link-to  'dashboard.projects.home' class="item" }}
+        {{#link-to  'dashboard.projects.home.cur-home' class="item" }}
         <i class="edit icon"></i> All Projects
         {{/link-to}}
         {{#link-to  'dashboard.projects.new' class="item" }}
