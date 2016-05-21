@@ -1,61 +1,69 @@
 <div class="twelve wide column">
   <div class="ui black segment"style="background: rgba(256,256,256,0.6)">
     <div class="ui basic right aligned segment">
-      {{#link-to 'dashboard.customers.new'}}
+      {{#link-to 'dashboard.agents.new'}}
       <div class="ui blue basic button">
-        <i class="add user icon"></i>
-        Add New customer
-        </div>
+        <i class="add user icon"></i>Add New Agent
+      </div>
           {{/link-to}}
   </div>
   <div class="ui stackable grid">
   <div class="eight wide column">
     <div class="ui blue segment">
       <div>
+        {{#liquid-if enableEditAgent   }}
+
         <div class="ui  form">
-          <!-- <div class="ui info message">
-            <div class="header">We had some issues</div>
-            <ul class="list">
-              <li>Please enter your first name</li>
-              <li>Please enter your last name</li>
-            </ul>
-                    </div> -->
-
-                    <div class="two fields">
-          <div class="field">
-            <label>First Name :</label>
-              <label><h4>{{agent.name}}</h4></label>
-          </div>
-          <div class="field">
-            <label>Contact Name :</label>
-              <label><h4>{{agent.name}}</h4></label>
-          </div>
-          </div>
-          <div class="two fields">
-            <div class="field">
-              <label>First Name :</label>
-                <label><h4>{{agent.name}}</h4></label>
+          <div class="inline field">
+            <label style="width:150px"> Name </label>:
+            <input type="text" placeholder="Name" >
+              </div>
+              <div class="inline field">
+              <label style="width:150px">Contact Name </label>:
+              <input type="text" placeholder="Contact Name">
             </div>
-            <div class="field">
-              <label>First Name :</label>
-                <label><h4>{{agent.name}}</h4></label>
+          <div class="inline field">
+            <label style="width:150px"> Contact Number </label>:
+            <input type="text" placeholder="Contact Number">
+              </div>
+              <div class="inline field">
+              <label style="width:150px"> Other Contact No </label>:
+              <input type="text" placeholder="Other Contact Number">
             </div>
+            <div class="inline field">
+            <label style="width:150px"> Other Reference Details </label>:
+            <input type="text" placeholder="Other Reference Details">
             </div>
+            <button class="ui primary mini button" {{action "editAgent"}} >Save</button>
+            <button class="ui  mini button" {{action "editAgent"}} >Discard</button>
 
-
-                  <button class="ui primary button" >
-                    Edit
-                  </button>
-
-
-          <!-- <div class="inline field">
-            <div class="ui checkbox">
-              <input type="checkbox">
-              <label>I agree to the terms and conditions</label>
-            </div>
-          </div> -->
-          <!-- <div class="ui blue submit button">Submit</div> -->
         </div>
+        {{else}}
+        <div class="ui  form">
+          <div class="inline field">
+            <label style="width:150px"> Name </label>:
+              <label><h4>{{agent.name}}</h4></label>
+              </div>
+              <div class="inline field">
+              <label style="width:150px">Contact Name </label>:
+              <label><h4>{{agent.contactname}}</h4></label>
+            </div>
+          <div class="inline field">
+            <label style="width:150px"> Contact Number </label>:
+              <label><h4>{{agent.contactno}}</h4></label>
+              </div>
+              <div class="inline field">
+              <label style="width:150px"> Other Contact No </label>:
+              <label><h4>{{agent.othcontactno}}</h4></label>
+            </div>
+            <div class="inline field">
+            <label style="width:150px"> Other Reference Details </label>:
+            <label><h4>{{agent.othrefdetails}}</h4></label>
+            </div>
+            <button class="ui primary mini button" {{action "editAgent"}} >Edit</button>
+        </div>
+        {{/liquid-if}}
+
       </div>
     </div>
   </div>

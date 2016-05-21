@@ -105,10 +105,10 @@
   <div class="ui black segment">
     <div class="ui top left attached label">Recent Changes</div>
 
-    <div class="ui middle aligned divided list">
+    <div class="ui middle aligned divided list" style="max-height:80px;overflow:auto">
       {{#each project.versions as |version|}}
                                 <li class="log-items">
-                                    <div class="log-body" style="max-height:80px;overflow:auto">
+                                    <div class="log-body" >
 
                                         {{#each-in version.changeset as |key changesetscontents|}}
 
