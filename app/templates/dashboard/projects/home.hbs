@@ -1,27 +1,33 @@
-
 <div class="two wide column">
 <div class="ui vertical inverted green   labeled icon menu" style="background: rgba(34,146,167,0.6)">
+
   {{#link-to  'dashboard.projects.home.cur-home' class="item" }}
     <i class="home icon"></i>
     Home
     {{/link-to}}
+
   {{#link-to  'dashboard.projects.home.cur-projects' class="item" }}
     <i class="file icon"></i>
     Projects
     {{/link-to}}
+
     {{#link-to  'dashboard.projects.home.cur-enqs' class="item" }}
     <i class="file icon"></i>
     Enquiries
     {{/link-to}}
+
     {{#link-to  'dashboard.projects.home.cur-qtns' class="item" }}
     <i class="file outline icon"></i>
     Quotations
     {{/link-to}}
+
+    {{#if (or isOm isGm isIs isPs )}}
     {{#link-to  'dashboard.projects.home.pen-qtns' class="item" }}
     <i class="file outline icon"></i>
   Pending  Quotations
     {{/link-to}}
-    {{! Removed bcoz not necessary}}
+    {{/if}}
+     {{! Removed bcoz not necessary}}
     <!-- {{#link-to  'dashboard.projects.home.cur-customers' class="item" }}
     <i class="users icon"></i>
     Customers

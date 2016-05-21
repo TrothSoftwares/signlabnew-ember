@@ -76,6 +76,28 @@ printQuotation :function(){
     startProject: function(project){
       project.set('status' , 'started');
       project.save();
+    },
+
+    ForwardtoIs: function(project){
+      project.set('fstatusis' , 'forwarded');
+      project.save();
+    },
+
+    ForwardtoPs: function(project){
+      project.set('fstatusps' , 'forwarded');
+      project.save();
+    },
+
+    isSentToGM: function(project){
+      project.set('iscomment', this.get('project.iscomment'));
+      project.set('fstatusis', 'replied');
+      project.save();
+    },
+
+    psSentToGM: function(project){
+      project.set('pscomment', this.get('project.pscomment'));
+      project.set('fstatusps', 'replied');
+      project.save();
     }
 
 

@@ -4,14 +4,13 @@
 
 <div class="ui black segment" style="background:rgba(256,256,256,0.4)">
   <div class="ui basic segment">
-      <h2 class="ui header"> Pending Enquiries </h2>
+      <h2 class="ui header"> Current Enquiries </h2>
       <table class="ui very basic table">
       <thead>
         <tr>
           <th>Enquiry.No</th>
           <th>Customer</th>
           <th>Agent </th>
-          <th>Date</th>
           <th></th>
         </tr>
       </thead>
@@ -26,10 +25,6 @@
           <td>{{enquiry.id}}</td>
           <td>{{enquiry.project.customer.name}}</td>
           <td>{{enquiry.project.agent.name}}</td>
-          <td>{{moment-format  enquiry.date outputFormat}}</td>
-
-
-
 
           {{#link-to 'dashboard.projects.project.home' enquiry.project.id}}
           <td><button class="mini blue ui button">Open</button></td>

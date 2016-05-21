@@ -26,6 +26,14 @@ export default Ember.Route.extend({
     }
 
 
+    if(Ember.isEqual('is', this.get('session.data.authenticated.role'))){
+      controller.set('isIs',true );
+    }
+    if(Ember.isEqual('ps', this.get('session.data.authenticated.role'))){
+      controller.set('isPs',true );
+    }
+
+
 
 
 
