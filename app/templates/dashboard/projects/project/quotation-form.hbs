@@ -116,7 +116,7 @@
       <i class="print icon"></i> Reject
     </button>
     {{/if}}
-    {{/if}}
+    {{/if}}{{!IF OM}}
 
 
 
@@ -131,42 +131,85 @@
    <button class="ui blue fluid button"  {{action "RejectQuotationGM" project}}>
      <i class="print icon"></i> Reject
    </button>
+   {{/if}}
+   <div class="ui divider"></div>
 
+   {{#if (or (not-eq project.fstatusis 'forwarded')   (eq project.fstatusis '') ) }}
+   {{#if (and (not-eq project.fstatusom 'accepted') (not-eq project.fstatusgm 'accepted'))}}
 
    <button class="ui blue fluid button"  {{action "ForwardtoIs" project}}>
      <i class="print icon"></i> Forward To IS
    </button>
 
+   {{/if}}
+   {{/if}}
+
+   <div class="ui divider"></div>
+
+   {{#if (or (not project.fstatusps 'forwarded')   (eq project.fstatusps '')) }}
+   {{#if (and (not-eq project.fstatusom 'accepted') (not-eq project.fstatusgm 'accepted'))}}
    <button class="ui blue fluid button"  {{action "ForwardtoPs" project}}>
      <i class="print icon"></i> Forward To PS
    </button>
+   {{/if}}
+   {{/if}}
+   <div class="ui divider"></div>
 
    {{#if (eq project.fstatusis 'forwarded')}}
    <div class="ui success message"> Forwarded to IS
    </div>
    {{/if}}
+   <div class="ui divider"></div>
 
    {{#if (eq project.fstatusps 'forwarded')}}
    <div class="ui success message"> Forwarded to PS
    </div>
    {{/if}}
+   <div class="ui divider"></div>
 
-
-
-
-
-
+   {{#if (eq project.fstatusis 'replied')}}
+   <div class="ui success message"> Replied by IS
+   </div>
    {{/if}}
-
+<div class="ui divider"></div>
+   {{#if (eq project.fstatusps 'replied')}}
+   <div class="ui success message"> Replied by PS
+   </div>
    {{/if}}
+   <div class="ui divider"></div>
+
+   {{/if}}{{!IF GM}}
+
+
+
+
+{{#if isIs}}{{!IF IS}}
+{{#if (eq project.fstatusis 'forwarded')}}
+{{input type="text" placeholder="Comments" value=project.iscomment}}
+<button class="ui blue fluid button"  {{action "isSentToGM" project}}>
+  <i class="print icon"></i> Reply To GM
+</button>
+{{/if}}
+{{/if}}  {{!IF IS}}
+<div class="ui divider"></div>
+
+{{#if isPs}}{{!IF PS}}
+{{#if (eq project.fstatusps 'forwarded')}}
+{{input type="text" placeholder="Comments" value=project.pscomment}}
+<button class="ui blue fluid button"  {{action "psSentToGM" project}}>
+  <i class="print icon"></i> Reply To GM
+</button>
+{{/if}}
+{{/if}}{{!IF PS}}
+
+
+
 
 
 
    {{!  IF NORMAL USER}}
 
-    {{#if (not (or isOm  isGm))}}
-
-
+    {{#if (not (or isOm  isGm isIs isPs))}}
 
     {{! GM STATUSES}}
 
@@ -221,14 +264,11 @@
           Rejected by OM
       </div>
       {{/if}}
-
-
       {{/if}}{{!if not om or gm}}
-
 
      <div class="ui divider"></div>
 
-     {{#if  (eq project.status 'created')}}
+     {{#if (or (eq project.fstatusom 'accepted') (eq project.fstatusgm 'accepted'))}}
      <button class="ui blue fluid button" {{action "startProject" project}}><i class="print icon"></i>Start Project</button>
     {{/if}}
 

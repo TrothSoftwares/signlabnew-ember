@@ -36,7 +36,7 @@
 
 </tr>
 {{/each}}
-{{/if}}
+{{/if}}{{! IF OM}}
 
 
 {{#if isGm}}
@@ -58,27 +58,66 @@
    <button class="mini blue ui button" {{ action "rejectGm" project}}>R</button>
  </td>
 
- {{#if (not   (eq project.iscomment ''))}}Is Comment
+ {{#if (eq project.fstatusis 'replied')}}Is Comment
  <div class="ui success message">{{project.iscomment}}
  </div>
  {{/if}}
 
 
-
-
-
-
-
- {{#if (not (eq project.pscomment ''))}}PS comment
+ {{#if (eq project.fstatusps 'replied')}}PS comment
  <div class="ui success message">{{project.iscomment}}
  </div>
  {{/if}}
 </tr>
-
-
 {{/each}}
+{{/if}}{{! IF GM}}
 
-{{/if}}
+
+{{#if isIs}}
+{{#each pendingQuotationsIS as |project|}}
+<tr>
+  <td>{{project.id}}</td>
+  <td>{{project.name}}</td>
+  <td>{{moment-format  project.date outputFormat}}</td>
+  <td>{{project.status}}</td>
+  <td>{{project.customer.name}}</td>
+  <td>{{project.agent.name}}</td>
+
+<td>
+{{#link-to 'dashboard.projects.project.quotation-form' project.id}}
+<button class="mini blue ui button">Quotation Details</button>
+{{/link-to}}
+</td>
+
+</tr>
+{{/each}}
+{{/if}}{{! IF IS}}
+
+
+{{#if isPs}}
+{{#each pendingQuotationsPS as |project|}}
+<tr>
+  <td>{{project.id}}</td>
+  <td>{{project.name}}</td>
+  <td>{{moment-format  project.date outputFormat}}</td>
+  <td>{{project.status}}</td>
+  <td>{{project.customer.name}}</td>
+  <td>{{project.agent.name}}</td>
+
+<td>
+{{#link-to 'dashboard.projects.project.quotation-form' project.id}}
+<button class="mini blue ui button">Quotation Details</button>
+{{/link-to}}
+</td>
+
+</tr>
+{{/each}}
+{{/if}}{{! IF IS}}
+
+
+
+
+
       </tbody>
     </table>
     </div>

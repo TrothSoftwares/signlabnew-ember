@@ -1,1 +1,54 @@
+
+<div class="ten wide column ">
+
+
+<div class="ui black segment" style="background:rgba(256,256,256,0.4)">
+  <div class="ui basic segment">
+      <h2 class="ui header"> Current Quotations </h2>
+      <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th>Quotation.No</th>
+          <th>Customer</th>
+          <th>Agent </th>
+          <th>Date</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+
+
+
+
+        {{#each quotations as |quotation|}}
+      <tr>
+          <td>{{quotation.id}}</td>
+          <td>{{quotation.project.customer.name}}</td>
+          <td>{{quotation.project.agent.name}}</td>
+          <td>{{moment-format  quotation.date outputFormat}}</td>
+
+
+
+
+
+
+
+
+
+
+          {{#link-to 'dashboard.projects.project.home' quotation.project.id}}
+          <td><button class="mini blue ui button">Open</button></td>
+          {{/link-to}}
+
+
+</tr>
+{{/each}}
+      </tbody>
+    </table>
+    </div>
+</div>
+
+</div>
+
 {{outlet}}
