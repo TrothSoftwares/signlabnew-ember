@@ -24,6 +24,12 @@ export default Ember.Controller.extend({
           customer : customer,
           agent : agent,
           status :'created',
+          fstatusom : '',
+          fstatusgm : '',
+          fstatusis : '',
+          fstatusps : '',
+          iscomment : '',
+          pscomment : '',
           duedate : this.get('duedate')
         });
 

@@ -131,7 +131,33 @@
    <button class="ui blue fluid button"  {{action "RejectQuotationGM" project}}>
      <i class="print icon"></i> Reject
    </button>
+
+
+   <button class="ui blue fluid button"  {{action "ForwardtoIs" project}}>
+     <i class="print icon"></i> Forward To IS
+   </button>
+
+   <button class="ui blue fluid button"  {{action "ForwardtoPs" project}}>
+     <i class="print icon"></i> Forward To PS
+   </button>
+
+   {{#if (eq project.fstatusis 'forwarded')}}
+   <div class="ui success message"> Forwarded to IS
+   </div>
    {{/if}}
+
+   {{#if (eq project.fstatusps 'forwarded')}}
+   <div class="ui success message"> Forwarded to PS
+   </div>
+   {{/if}}
+
+
+
+
+
+
+   {{/if}}
+
    {{/if}}
 
 
@@ -143,7 +169,6 @@
 
 
     {{! GM STATUSES}}
-
 
     {{#if (eq project.fstatusgm 'forwarded')}}
     <div class="ui info message"> Forwarded to GM
