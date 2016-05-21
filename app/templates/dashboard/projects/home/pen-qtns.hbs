@@ -25,13 +25,15 @@
           <td>{{project.status}}</td>
           <td>{{project.customer.name}}</td>
           <td>{{project.agent.name}}</td>
-{{#link-to 'dashboard.projects.project.quotation-form' project.id}}
+
 <td>
+  {{#link-to 'dashboard.projects.project.quotation-form' project.id}}
   <button class="mini blue ui button">Quotation Details</button>
+  {{/link-to}}
   <button class="mini blue ui button"  {{ action "acceptOm" project}}>A</button>
   <button class="mini blue ui button" {{ action "rejectOm" project}}>R</button>
 </td>
-{{/link-to}}
+
 </tr>
 {{/each}}
 {{/if}}
@@ -56,9 +58,24 @@
    <button class="mini blue ui button" {{ action "rejectGm" project}}>R</button>
  </td>
 
+ {{#if (not   (eq project.iscomment ''))}}Is Comment
+ <div class="ui success message">{{project.iscomment}}
+ </div>
+ {{/if}}
+
+
+
+
+
+
+
+ {{#if (not (eq project.pscomment ''))}}PS comment
+ <div class="ui success message">{{project.iscomment}}
+ </div>
+ {{/if}}
 </tr>
 
- 
+
 {{/each}}
 
 {{/if}}
