@@ -1,4 +1,7 @@
 <div class="ten wide column ">
+
+
+
 <div class="ui black segment" style="background:rgba(256,256,256,0.4)">
   <div class="ui basic segment">
       <h2 class="ui header">Pending Quotations</h2>
@@ -15,9 +18,7 @@
         </tr>
       </thead>
       <tbody>
-
-        {{#if isOm}}
-        {{#each pendingQuotationsOM as |project|}}
+        {{#each processingProjects as |project|}}
         <tr>
           <td>{{project.id}}</td>
           <td>{{project.name}}</td>
@@ -25,44 +26,17 @@
           <td>{{project.status}}</td>
           <td>{{project.customer.name}}</td>
           <td>{{project.agent.name}}</td>
-{{#link-to 'dashboard.projects.project.quotation-form' project.id}}
-<td>
-  <button class="mini blue ui button">Quotation Details</button>
-  <button class="mini blue ui button"  {{ action "acceptOm" project}}>A</button>
-  <button class="mini blue ui button" {{ action "rejectOm" project}}>R</button>
-</td>
+{{#link-to 'dashboard.projects.project.home' project.id}}
+<td><button class="mini blue ui button">Open</button></td>
 {{/link-to}}
 </tr>
-{{/each}}
-{{/if}}
 
-
-{{#if isGm}}
-
-{{#each pendingQuotationsGM as |project|}}
-<tr>
-  <td>{{project.id}}</td>
-  <td>{{project.name}}</td>
-  <td>{{moment-format  project.date outputFormat}}</td>
-  <td>{{project.status}}</td>
-  <td>{{project.customer.name}}</td>
-  <td>{{project.agent.name}}</td>
-
-<td>
-  {{#link-to 'dashboard.projects.project.quotation-form' project.id}}
-   <button class="mini blue ui button">Quotation Details</button>
-{{/link-to}}
-   <button class="mini blue ui button"  {{ action "acceptGm" project}}>A</button>
-   <button class="mini blue ui button" {{ action "rejectGm" project}}>R</button>
- </td>
-
-</tr>
 {{/each}}
 
-{{/if}}
       </tbody>
     </table>
     </div>
 </div>
 </div>
+
 {{outlet}}
