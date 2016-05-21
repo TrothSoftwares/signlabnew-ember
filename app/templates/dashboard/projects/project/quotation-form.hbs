@@ -29,7 +29,7 @@
 </form>
 <div class="ui segment basic">
 
-<table class="ui celled inverted table">
+<table class="ui celled inverted structured table">
   <thead>
     <tr>
       <th>Sl.No</th>
@@ -43,10 +43,9 @@
   <tbody>
     {{#each project.items as |item index|}}
     <tr>
-      <td>{{incrementone index}}</td>
+      <td rowspan="2" class="center aligned">{{incrementone index}}</td>
       <td>
         <b>Dimensions:</b> {{item.dimensions}}<br>
-        						<b>Specification:</b> {{item.description}}
       </td>
       <td ><div class="ui mini  input">
         {{input type="text" placeholder="Unit" value=item.unit}}
@@ -57,6 +56,14 @@
       <td ><div class="ui mini  input">
           {{input type="text" placeholder="Amount" value=item.amount}}
         </div></td>
+    </tr>
+    <tr>
+      <td>
+        <b>Specification:</b>
+      </td>
+      <td colspan="3">
+        {{item.description}}
+      </td>
     </tr>
     {{/each}}
 
@@ -209,30 +216,13 @@
 {{outlet}}
 <div class="print-box only-print">
   <h2 class="ui center dividing aligned header" >Quotation Form </h2>
-  <form class="ui form">
-    <div class="inline fields">
-      <div class="fourteen wide field">
+
         <label>Date</label>
-        {{pikaday-input value=project.quotation.date}}      {{!Using pikaday addon to use date calendar}}
-      </div>
+        {{project.quotation.date}}      {{!Using pikaday addon to use date calendar}}
 
-    </div>
-<div class="ui divider"></div>
-<div class="inline fields">
-<div class="fourteen wide field center aligned">
- <label>Subject</label>
- {{project.quotation.subject}}
-</div>
-
-</div>
-<div class="inline fields">
-<div class="fourteen wide field">
- <label>Body</label>
- <textarea rows="2" style="margin-top: 0px; margin-bottom: 0px; height: 95px;"placeholder=" Body">{{project.quotation.body}}</textarea>
-</div>
-</div>
-</form>
-<table class="ui celled center aligned table">
+<h3 class="ui center aligned header">SUB1</h3>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<table class="ui center aligned celled structured table">
   <thead>
     <tr>
       <th>Sl.No</th>
@@ -246,14 +236,21 @@
   <tbody>
     {{#each project.items as |item index|}}
     <tr>
-      <td>{{incrementone index}}</td>
-      <td>
+      <td rowspan="2">{{incrementone index}}</td>
+      <td class="ui left aligned">
         <b>Dimensions:</b> {{item.dimensions}}<br>
-        						<b>Specification:</b> {{item.description}}
       </td>
       <td >{{item.unit}}</td>
       <td >{{item.rate}}</td>
       <td >{{item.amount}}</td>
+    </tr>
+    <tr>
+      <td class="ui left aligned">
+        <b>Specification:</b>
+      </td>
+      <td colspan="3" class ="ui left aligned">
+        {{item.description}}
+      </td>
     </tr>
     {{/each}}
 
