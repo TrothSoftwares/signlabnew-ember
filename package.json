@@ -46,6 +46,7 @@
     "ember-pikaday": "1.1.0",
     "ember-simple-auth": "1.0.1",
     "ember-truth-helpers": "1.2.0",
+    "liquid-fire": "0.23.1",
     "semantic-ui-ember": "0.9.3"
   }
 }

@@ -8,14 +8,19 @@
     <h4 class="ui  header">Project Name</h4>         {{! First place holder project name}}
         {{input type="text" placeholder="First Name" value=project.name}}
   </div>
- 
 
-
-
-  <div class="ui divider"></div>
-
-  <div class="inline fields">
-    <div class="twelve wide field"><label>Customer</label>  {{!Second place holder customer}}
+<div class="ui two column grid">
+  <div class="ui column field">
+    <label>Date</label>
+    {{pikaday-input value=project.enquiry.date}}      {{!Using pikaday addon to use date calendar}}
+  </div>
+  <div class=" ui column field">
+    <label for="" class="labels">Due Date</label>
+     {{pikaday-input value=project.duedate  format="DD-MM-YYYY" theme="form-input" }}
+  </div>
+  <div class="ui column field">
+      <div class="inline fields">
+     <div class="twelve wide field"><label>Customer</label>  {{!Second place holder customer}}
       {{ember-selectize
       content=customers
       optionValuePath="content.id"
@@ -24,6 +29,8 @@
       placeholder="Select a Customer" }}
     </div>
   </div>
+</div>
+<div class="ui column field">
   <div class="inline fields">
     <div class="twelve wide field"><label>Agent</label>   {{!Third place holder agent  }}
       {{ember-selectize
@@ -34,10 +41,11 @@
       placeholder="Select a Agent" }}
     </div>
   </div>
+</div>
+</div>
+
   <div class="inline fields">
     <div class="fourteen wide field">
-      <label>Date</label>
-      {{pikaday-input value=project.enquiry.date}}      {{!Using pikaday addon to use date calendar}}
     </div>
   </div>
 
