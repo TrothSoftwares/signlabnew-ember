@@ -269,8 +269,12 @@
      <div class="ui divider"></div>
 
      {{#if (or (eq project.fstatusom 'accepted') (eq project.fstatusgm 'accepted'))}}
+    {{#if (not-eq project.status 'started')}}
      <button class="ui blue fluid button" {{action "startProject" project}}><i class="print icon"></i>Start Project</button>
+     {{/if}}
     {{/if}}
+
+
 
 </div>
 
