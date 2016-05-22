@@ -10,6 +10,16 @@ customers: this.store.findAll('customer'),
 
   },
 
+
+
+
+
+
+
+
+
+
+
   setupController: function(controller , model){
 
     controller.set('customers', model.customers);

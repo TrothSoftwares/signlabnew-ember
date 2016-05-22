@@ -5,8 +5,7 @@ export default Ember.Controller.extend({
 
   isCreateProjectButtonDisabled: Ember.computed('name' , 'duedate',  function() {
     if(Ember.isEmpty(this.get('name')) ||
-    Ember.isEmpty(this.get('duedate'))
-    )
+    Ember.isEmpty(this.get('duedate')))
     {return 'disabled';}
     else{return '';}
   }),
@@ -24,8 +23,7 @@ export default Ember.Controller.extend({
           customer : customer,
           agent : agent,
           status :'created',
-          fstatusom : '',
-          fstatusgm : '',
+           fstatusgm : '',
           fstatusis : '',
           fstatusps : '',
           iscomment : '',
@@ -58,7 +56,9 @@ export default Ember.Controller.extend({
 
               });
 
-                quotation.save().catch(function(){
+                quotation.save().then(function(){
+
+                }).catch(function(){
                   controller.notifications.addNotification({
                     message: 'Sorry, cant save at the moment !' ,
                     type: 'error',
@@ -67,7 +67,14 @@ export default Ember.Controller.extend({
                 });
 
                 controller.set('name' , '');
+                controller.set('duedate', '');
                 controller.transitionToRoute('dashboard.projects.project.enquiry-form',project);
+              }).catch(function(){
+                controller.notifications.addNotification({
+                  message: 'Sorry, cant save project at the moment !' ,
+                  type: 'error',
+                  autoClear: true
+                });
               });
             },
 
