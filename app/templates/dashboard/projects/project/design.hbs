@@ -1,52 +1,75 @@
-<div class="seven wide column">
+<div class="ten wide column">
+  <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveDesigndetails"}}>
+    <i class="save icon"></i>Save
+  </button>
     <div class="ui segment black">
       <div class="enq-form" style=" max-height: 440px;overflow: auto; padding-right: 10px">
       <h2 class="ui header">Design Details</h2>
+      {{#each project.items as |item index|}}
           <div class="ui segment black">
-            <div class="ui top attached label"><h3 class="ui header">Item 1</h3></div>
+            <div class="ui top attached label"><h3 class="ui header">Item {{incrementone index}}</h3></div>
             <div class="ui form">
 
-            <div class="field"><label>Design Specifications</label><input type="text"></div>
-            <div class="field"><label>Design Notes:</label><input type="text"></div>
+            <div class="field"><label>Design Specifications</label>
+              {{input type="text" placeholder="Design Specifications" value=item.designspecifications}}
+            </div>
+            <div class="field"><label>Design Notes:</label>
+              {{input type="text" placeholder="Design Design Notes" value=item.designnotes}}
+            </div>
             <div class="field">
             <h4 class=" ui  header ">Upload Design Files</h4>
-            <button class="mini primary   ui button"><i class="upload icon"></i>Choose File</button>
+            <button class="mini primary   ui button"><i class="upload icon"></i>
+              {{file-upload item=item designimages=item.designimages    on-upload=(action "uploadDesignimage")}}
+
+            </button>
+            {{#if imageUploading }}
+    <div class="loading-pane text-center">
+      <div class="loading-message text-center" >
+        Uploading image
+
+          <div id="circularG">
+          	<div id="circularG_1" class="circularG"></div>
+          	<div id="circularG_2" class="circularG"></div>
+          	<div id="circularG_3" class="circularG"></div>
+          	<div id="circularG_4" class="circularG"></div>
+          	<div id="circularG_5" class="circularG"></div>
+          	<div id="circularG_6" class="circularG"></div>
+          	<div id="circularG_7" class="circularG"></div>
+          	<div id="circularG_8" class="circularG"></div>
+          </div>
+
+
+      </div>
+      </div>
+    {{else}}
+    {{/if}}
             <div class="ui divider"></div>
 
             <div class="ui three column grid">
-              <div class="column"><div class="ui segment"><img></div></div>
-              <div class="column"><div class="ui segment"><img></div></div>
-              <div class="column"><div class="ui segment"><img></div></div>
+              {{#each item.designimages as |designimage index|}}
+              <div class="column"><div class="ui segment">
+                {{#light-box href=designimage.fullurl data-lightbox="cats-group" data-title=designimage.description inlineImage=false}}
+              <img src="{{designimage.thumburl}}">
+              {{/light-box}}
+              <a href="{{designimage.fullurl}}" target="_blank">
+                <i class="download icon"></i>
+              </a>
+                {{async-button designimage action="deleteDesignimage" default="Delete"  pending="Deleting.." class="button success block-shadow-success text-shadow small-button"}}
+              </div></div>
+              {{/each}}
+
             </div>
-          </div>
-          </div>
-        </div>
-        <div class="ui segment black">
-          <div class="ui top attached label"><h3 class="ui header">Item 1</h3></div>
-          <div class="ui form">
 
-          <div class="field"><label>Design Specifications</label><input type="text"></div>
-          <div class="field"><label>Design Notes:</label><input type="text"></div>
-          <div class="field">
-          <h4 class=" ui  header ">Upload Design Files</h4>
-          <button class="mini primary   ui button"><i class="upload icon"></i>Choose File</button>
-          <div class="ui divider"></div>
 
-          <div class="ui three column grid">
-            <div class="column"><div class="ui segment"><img></div></div>
-            <div class="column"><div class="ui segment"><img></div></div>
-            <div class="column"><div class="ui segment"><img></div></div>
+
+          </div>
           </div>
         </div>
-        </div>
-      </div>
+        {{/each}}
+
               </div>
    </div>
 </div>
-<div class="seven wide column">
-    <div class="ui segment black">
 
-  </div>
-</div>
 
 {{outlet}}

@@ -12,6 +12,9 @@ module.exports = function(defaults) {
    }
   });
 
+  app.import('bower_components/ember-uploader/dist/ember-uploader.min.js'); // Add this code.
+
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

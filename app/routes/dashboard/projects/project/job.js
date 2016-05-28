@@ -10,7 +10,7 @@ model: function() {
       },
 
 
-        setupController(controller, models) {
-          controller.setProperties(models); // For setting all models to access in seperate variable names
+        setupController(controller, model) {
+          controller.set('project',model.project);
         }
 });

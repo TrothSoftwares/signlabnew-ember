@@ -39,6 +39,7 @@
     "ember-cli-selectize": "0.5.2",
     "ember-cli-sri": "^1.0.3",
     "ember-cli-uglify": "^1.2.0",
+    "ember-cli-uploader": "^0.3.11",
     "ember-data": "2.4.3",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
@@ -48,5 +49,8 @@
     "ember-truth-helpers": "1.2.0",
     "liquid-fire": "0.23.1",
     "semantic-ui-ember": "0.9.3"
+  },
+  "dependencies": {
+    "ember-cli-lightbox": "0.0.3"
   }
 }

@@ -1,56 +1,105 @@
 <div class="ten wide column">
+  <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveJobdetails"}}>
+    <i class="save icon"></i>Save
+  </button>
+
     <div class="ui segment black">
       <div class="enq-form" style=" max-height: 440px;overflow: auto; padding-right: 10px">
-      <h2 class="ui header">Design Details</h2>
+      <h2 class="ui header">Job Details</h2>
+
+
+      {{#each project.items as |item index|}}
           <div class="ui segment black">
-            <div class="ui top attached label"><h3 class="ui header">Item 1</h3></div>
+            <div class="ui top attached label"><h3 class="ui header">Item {{incrementone index}}</h3></div>
             <div class="ui form">
 
               <div class="inline fields">
-                <div class="four wide field"><label>Site Survey Details</label></div><div class="ten wide field"><input type="text" placeholder="Site Survey Details"></div>
+                <div class="four wide field"><label>Site Survey Details</label></div><div class="ten wide field">
+                  {{input type="text" placeholder="Site Survey Details" value=item.surveydetails}}
+                </div>
               </div>
               <div class="inline fields">
-                <div class="four wide field"><label>Technique to Install</label></div><div class="ten wide field"><input type="text" placeholder="Technique to Install"></div>
+                <div class="four wide field"><label>Technique to Install</label></div><div class="ten wide field">
+                  {{input type="text" placeholder="Technique" value=item.technique}}
+                </div>
               </div>
               <div class="inline fields">
-                <div class="four wide field"><label>Materials Required</label></div><div class="ten wide field"><input type="text" placeholder="Materials Required"></div>
+                <div class="four wide field"><label>Materials Required</label></div><div class="ten wide field">
+                  {{input type="text" placeholder="Material" value=item.material}}
+                </div>
               </div>
               <div class="inline fields">
-                <div class="four wide field"><label>Team Allotment</label></div><div class="ten wide field"><input type="text" placeholder="Team Allotment"></div>
+                <div class="four wide field"><label>Team Allotment</label></div><div class="ten wide field">
+                  {{input type="text" placeholder="Team" value=item.team}}
+                </div>
               </div>
-            <div class="segment basic ui">
-            <h4 class=" ui left  floated header ">Upload Design Files</h4>
-            <button class="mini primary right floated  ui button"><i class="upload icon"></i>Choose File</button>
 
-          </div>
-          <div class="ui divider"></div>
-            <div class="ui three column grid basic segment">
-              <div class="column"><div class="ui segment"><img></div></div>
-              <div class="column"><div class="ui segment"><img></div></div>
-              <div class="column"><div class="ui segment"><img></div></div>
-            </div>
 
-          </div>
-        </div>
-        <div class="ui segment black">
-          <div class="ui top attached label"><h3 class="ui header">Item 1</h3></div>
-          <div class="ui form">
 
-          <div class="field"><label>Design Specifications</label><input type="text"></div>
-          <div class="field"><label>Design Notes:</label><input type="text"></div>
-          <div class="field">
-          <h4 class=" ui  header ">Upload Design Files</h4>
-          <button class="mini primary   ui button"><i class="upload icon"></i>Choose File</button>
+
           <div class="ui divider"></div>
 
-          <div class="ui three column grid">
-            <div class="column"><div class="ui segment"><img></div></div>
-            <div class="column"><div class="ui segment"><img></div></div>
-            <div class="column"><div class="ui segment"><img></div></div>
-          </div>
-        </div>
-        </div>
+          {{#if imageUploading }}
+
+<div class="loading-pane text-center">
+  <div class="loading-message text-center" >
+    Uploading image
+    <div id="circularG">
+      <div id="circularG_1" class="circularG"></div>
+      <div id="circularG_2" class="circularG"></div>
+      <div id="circularG_3" class="circularG"></div>
+      <div id="circularG_4" class="circularG"></div>
+      <div id="circularG_5" class="circularG"></div>
+      <div id="circularG_6" class="circularG"></div>
+      <div id="circularG_7" class="circularG"></div>
+      <div id="circularG_8" class="circularG"></div>
+    </div>
+  </div>
+  </div>
+{{else}}
+{{/if}}
+</div>
+
+<h4 class=" ui left  floated header ">Upload Design Files</h4>
+<button class="mini primary right floated  ui button"><i class="upload icon"></i>
+  {{file-upload item=item siteimages=item.siteimages  on-upload=(action "uploadSiteimage")}}
+</button>
+
+
+
+
+
+<div class="ui three column grid">
+  {{#each item.siteimages as |siteimage index|}}
+  <div class="column">
+    <div class=" ui fluid card">
+
+        {{#light-box href=siteimage.fullurl data-lightbox="cats-group" data-title=siteimage.description inlineImage=false}}
+        <div class="image">
+        <img src="{{siteimage.thumburl}}">
       </div>
+        {{/light-box}}
+        <div class="content">
+             Rating:
+             <a href="{{siteimage.fullurl}}" target="_blank">
+               <i class="download icon"></i>
+             </a>
+             {{async-button siteimage action="deleteSiteimage" default="Delete"  fulfilled="Saved" rejected="Cannot Save"pending="Deleting.." class="button danger block-shadow-success text-shadow small-button"}}
+           </div>
+
+    </div>
+  </div>
+    {{/each}}
+  </div>
+
+
+
+        </div>
+        {{/each}}
+
+
+
+
               </div>
    </div>
 </div>
