@@ -2,6 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  isCreateCustomerButtonDisabled: Ember.computed('customername' ,  function() {
+    if( Ember.isEmpty(this.get('customername'))
+  ){return 'disabled';}
+  else{return '';}
+  }),
+
 
   actions: {
 
@@ -27,9 +33,13 @@ var controller = this;
          controller.set('othercontactnumber' , '');
          controller.set('otherefdetails' , '');
 
-         controller.transitionToRoute('dashboard.customers');
+         controller.transitionToRoute('dashboard.customers.customer' , customer);
        }).catch(function(){
-         console.log('some error ');
+         controller.notifications.addNotification({
+           message: 'Sorry, cant save at the moment !' ,
+           type: 'error',
+           autoClear: true
+         });
 
        });
 

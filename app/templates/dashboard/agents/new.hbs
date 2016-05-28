@@ -23,7 +23,7 @@
     <label>Other Reference Details</label>
     {{input type="text" value=otherefdetails placeholder="Other Reference Details"}}
   </div>
-  <button class="ui primary button" >Submit</button>
+  <button class="ui primary button {{isCreateAgentButtonDisabled}}" type="submit"  {{action "createAgent"}}>Submit</button>
 </form>
   </div>
 </div>
