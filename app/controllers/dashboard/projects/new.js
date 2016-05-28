@@ -46,7 +46,7 @@ export default Ember.Controller.extend({
               });
 
               var quotation = controller.store.createRecord('quotation', {
-
+                date: new Date(),
                 body :'We are pleased to quote out lowest rate for the sign required as per the detailed discussion with us. We have also taken into consideration, as you are one of our esteemed customer. We are quoting this competitive rate.',
                 payment :'60% Advance balance and 40% up on completion',
                 delivery : 'With 30 days from the date of confirmation and advance payment',
