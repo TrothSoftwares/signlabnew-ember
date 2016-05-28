@@ -1,7 +1,4 @@
 <div class="ten wide column">
-  <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveDesigndetails"}}>
-    <i class="save icon"></i>Save
-  </button>
     <div class="ui segment black">
       <div class="enq-form" style=" max-height: 440px;overflow: auto; padding-right: 10px">
       <h2 class="ui header">Design Details</h2>
@@ -17,26 +14,23 @@
               {{input type="text" placeholder="Design Design Notes" value=item.designnotes}}
             </div>
             <div class="field">
-            <h4 class=" ui  header ">Upload Design Files</h4>
-            <button class="mini primary   ui button"><i class="upload icon"></i>
+              <div style="min-height:35px">
+            <h4 class=" ui  header " style="float:left">Upload Design Files</h4>
+            <button class="mini primary   ui button" style="float:right"><i class="upload icon"></i>
               {{file-upload item=item designimages=item.designimages    on-upload=(action "uploadDesignimage")}}
 
             </button>
+          </div>
             {{#if imageUploading }}
     <div class="loading-pane text-center">
-      <div class="loading-message text-center" >
-        Uploading image
+      <div class="loading-message text-center " >
+        <div style="padding-left:300px">
+          <img src="/images/load.gif" style="margin-top:10px;padding-left:35px">
+          <br>
+          Uploading image
+        </div>
 
-          <div id="circularG">
-          	<div id="circularG_1" class="circularG"></div>
-          	<div id="circularG_2" class="circularG"></div>
-          	<div id="circularG_3" class="circularG"></div>
-          	<div id="circularG_4" class="circularG"></div>
-          	<div id="circularG_5" class="circularG"></div>
-          	<div id="circularG_6" class="circularG"></div>
-          	<div id="circularG_7" class="circularG"></div>
-          	<div id="circularG_8" class="circularG"></div>
-          </div>
+
 
 
       </div>
@@ -52,9 +46,12 @@
               <img src="{{designimage.thumburl}}">
               {{/light-box}}
               <a href="{{designimage.fullurl}}" target="_blank">
-                <i class="download icon"></i>
+                <div class="ui mini blue labeled icon button">
+                  Download<i class="download icon"></i>
+
+                </div>
               </a>
-                {{async-button designimage action="deleteDesignimage" default="Delete"  pending="Deleting.." class="button success block-shadow-success text-shadow small-button"}}
+                {{async-button designimage action="deleteDesignimage" default="Delete"  pending="Deleting.." class="ui button success block-shadow-success text-shadow mini button"}}
               </div></div>
               {{/each}}
 
@@ -70,6 +67,10 @@
               </div>
    </div>
 </div>
-
+<div class="four wide column">
+  <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveDesigndetails"}}>
+    <i class="save icon"></i>Save
+  </button>
+</div>
 
 {{outlet}}

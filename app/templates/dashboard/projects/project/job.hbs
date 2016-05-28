@@ -1,8 +1,4 @@
 <div class="ten wide column">
-  <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveJobdetails"}}>
-    <i class="save icon"></i>Save
-  </button>
-
     <div class="ui segment black">
       <div class="enq-form" style=" max-height: 440px;overflow: auto; padding-right: 10px">
       <h2 class="ui header">Job Details</h2>
@@ -39,36 +35,34 @@
 
           <div class="ui divider"></div>
 
-          {{#if imageUploading }}
 
-<div class="loading-pane text-center">
-  <div class="loading-message text-center" >
-    Uploading image
-    <div id="circularG">
-      <div id="circularG_1" class="circularG"></div>
-      <div id="circularG_2" class="circularG"></div>
-      <div id="circularG_3" class="circularG"></div>
-      <div id="circularG_4" class="circularG"></div>
-      <div id="circularG_5" class="circularG"></div>
-      <div id="circularG_6" class="circularG"></div>
-      <div id="circularG_7" class="circularG"></div>
-      <div id="circularG_8" class="circularG"></div>
-    </div>
-  </div>
-  </div>
-{{else}}
-{{/if}}
 </div>
-
+<div style="min-height:35px">
 <h4 class=" ui left  floated header ">Upload Design Files</h4>
 <button class="mini primary right floated  ui button"><i class="upload icon"></i>
   {{file-upload item=item siteimages=item.siteimages  on-upload=(action "uploadSiteimage")}}
 </button>
+</div>
+
+{{#if imageUploading }}
+
+<div class="loading-pane text-center">
+<div class="loading-message text-center" >
+<div style="padding-left:300px">
+<img src="/images/load.gif" style="margin-top:10px;padding-left:35px">
+<br>
+Uploading image
+</div>
+</div>
+</div>
+{{else}}
+{{/if}}
 
 
 
+<div class="ui divider">
 
-
+</div>
 <div class="ui three column grid">
   {{#each item.siteimages as |siteimage index|}}
   <div class="column">
@@ -80,11 +74,13 @@
       </div>
         {{/light-box}}
         <div class="content">
-             Rating:
              <a href="{{siteimage.fullurl}}" target="_blank">
-               <i class="download icon"></i>
-             </a>
-             {{async-button siteimage action="deleteSiteimage" default="Delete"  fulfilled="Saved" rejected="Cannot Save"pending="Deleting.." class="button danger block-shadow-success text-shadow small-button"}}
+               <div class="ui mini blue labeled icon button">
+                 Download<i class="download icon"></i>
+
+               </div>
+            </a>
+             {{async-button siteimage action="deleteSiteimage" default="Delete"  fulfilled="Saved" rejected="Cannot Save"pending="Deleting.." class="ui button danger block-shadow-success text-shadow mini button"}}
            </div>
 
     </div>
@@ -102,5 +98,10 @@
 
               </div>
    </div>
+</div>
+<div class="four wide column">
+  <button class="ui blue fluid  button" style="margin-bottom:10px" {{action "saveJobdetails"}}>
+    <i class="save icon"></i>Save
+  </button>
 </div>
 {{outlet}}

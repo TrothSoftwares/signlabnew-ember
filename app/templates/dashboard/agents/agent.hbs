@@ -11,35 +11,33 @@
   <div class="eight wide column">
     <div class="ui blue segment">
       <div>
-        {{#liquid-if enableEditAgent   }}
 
-        <div class="ui  form">
+
+        <div class="ui  form agentedit" style="display:none">
           <div class="inline field">
             <label style="width:150px"> Name </label>:
-            <input type="text" placeholder="Name" >
+            {{input type="text" placeholder="Name" value=agent.name}}
               </div>
               <div class="inline field">
               <label style="width:150px">Contact Name </label>:
-              <input type="text" placeholder="Contact Name">
+              {{input type="text" placeholder="Contact Name" value=agent.contactname}}
             </div>
           <div class="inline field">
             <label style="width:150px"> Contact Number </label>:
-            <input type="text" placeholder="Contact Number">
+            {{input type="text" placeholder="Contact Number" value=agent.contactno}}
               </div>
               <div class="inline field">
               <label style="width:150px"> Other Contact No </label>:
-              <input type="text" placeholder="Other Contact Number">
+              {{input type="text" placeholder="Other Contact Number" value=agent.othcontactno}}
             </div>
             <div class="inline field">
             <label style="width:150px"> Other Reference Details </label>:
-            <input type="text" placeholder="Other Reference Details">
+            {{input type="text" placeholder="Other Reference Details" value=agent.othrefdetails}}
             </div>
-            <button class="ui primary mini button" {{action "editAgent"}} >Save</button>
-            <button class="ui  mini button" {{action "editAgent"}} >Discard</button>
-
+            <button class="ui primary mini button" {{action "saveAgent"}} >Save</button>
         </div>
-        {{else}}
-        <div class="ui  form">
+
+        <div class="ui  form agentview" >
           <div class="inline field">
             <label style="width:150px"> Name </label>:
               <label><h4>{{agent.name}}</h4></label>
@@ -62,7 +60,6 @@
             </div>
             <button class="ui primary mini button" {{action "editAgent"}} >Edit</button>
         </div>
-        {{/liquid-if}}
 
       </div>
     </div>

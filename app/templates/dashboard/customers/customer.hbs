@@ -12,7 +12,7 @@
   <div class="eight wide column">
     <div class="ui blue segment">
       <div>
-        <div class="ui  form">
+        <div class="ui  form customerview">
           <div class="inline field">
             <label style="width:150px"> Name </label>:
               <label><h4>{{customer.name}}</h4></label>
@@ -33,7 +33,31 @@
             <label style="width:150px"> Other Reference Details </label>:
             <label><h4>{{customer.othrefdetails}}</h4></label>
             </div>
-            <button class="ui primary mini button" >Edit</button>
+            <button class="ui primary mini button" {{action "editCustomer"}} >Edit</button>
+        </div>
+
+        <div class="ui  form customerview customeredit" style="display:none">
+          <div class="inline field">
+            <label style="width:150px"> Name</label>:
+              {{input type="text" placeholder="Name" value=customer.name}}
+              </div>
+              <div class="inline field">
+              <label style="width:150px">Contact Name </label>:
+              {{input type="text" placeholder="Contact Name" value=customer.contactname}}
+            </div>
+          <div class="inline field">
+            <label style="width:150px"> Contact Number </label>:
+              {{input type="text" placeholder="Contact Number" value=customer.contactno}}
+              </div>
+              <div class="inline field">
+              <label style="width:150px"> Other Contact No </label>:
+              {{input type="text" placeholder="Other Contact No." value=customer.othcontactno}}
+            </div>
+            <div class="inline field">
+            <label style="width:150px"> Other Reference Details </label>:
+            {{input type="text" placeholder="Other Reference Details" value=customer.othrefdetails}}
+            </div>
+            <button class="ui primary mini button" {{action "saveCustomer"}} >Edit</button>
         </div>
       </div>
     </div>
